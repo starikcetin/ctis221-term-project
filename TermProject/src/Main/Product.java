@@ -32,12 +32,12 @@ public abstract class Product {
 
     @Override
     public String toString() {
-        return "\nID : " + productID
-                + "\nName : " + productName
-                + "\nPublisher : " + publisher
-                + "\nGenre : " + genre
-                + "\nRelease Date : " + releaseDate
-                + "\nPrice : " + price
-                + "\nLanguage : " + language;
+        return "\nID: " + productID
+                + "\nName: " + productName
+                + "\nPublisher: " + publisher
+                + "\nGenre: " + genre
+                + "\nRelease Date: " + releaseDate
+                + "\nPrice: " + price
+                + "\nLanguage: " + language;
     }
 }

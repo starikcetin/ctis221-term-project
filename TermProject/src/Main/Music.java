@@ -9,6 +9,7 @@ public class Music extends Product {
 
     public Music(int productID, int releaseDate, double price, String productName, String publisher, String genre, String language, String type, String album, String artist, String length, String producer) {
         super(productID, releaseDate, price, productName, publisher, genre, language, type);
+
         this.album = album;
         this.artist = artist;
         this.length = length;
@@ -18,9 +19,9 @@ public class Music extends Product {
     @Override
     public String toString() {
         return super.toString()
-                + "\nArtist : " + artist
-                + "\nAlbum : " + album
-                + "\nProducer : " + producer
-                + "\nLength : " + length;
+                + "\nArtist: " + artist
+                + "\nAlbum: " + album
+                + "\nProducer: " + producer
+                + "\nLength: " + length;
     }
 }

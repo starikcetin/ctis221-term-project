@@ -11,6 +11,7 @@ public class Movie extends Product {
 
     public Movie(int productID, int releaseDate, double price, String productName, String publisher, String genre, String language, String type, String producer, String director, String country, String starring, int length, double boxOffice) {
         super(productID, releaseDate, price, productName, publisher, genre, language, type);
+        
         this.producer = producer;
         this.director = director;
         this.country = country;
@@ -22,11 +23,11 @@ public class Movie extends Product {
     @Override
     public String toString() {
         return super.toString()
-                + "\nProducer : " + producer
-                + "\nDirector : " + director
-                + "\nCountry : " + country
-                + "\nStarring : " + starring
-                + "\nTime : " + length
-                + "\nBox Office : " + boxOffice;
+                + "\nProducer: " + producer
+                + "\nDirector: " + director
+                + "\nCountry: " + country
+                + "\nStarring: " + starring
+                + "\nTime: " + length
+                + "\nBox Office: " + boxOffice;
     }
 }
