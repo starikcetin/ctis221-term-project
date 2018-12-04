@@ -1,3 +1,5 @@
+package Main;
+
 public abstract class Product {
     protected int productID;
     protected int releaseDate;

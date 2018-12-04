@@ -1,3 +1,5 @@
+package Main;
+
 public class Music extends Product{
     
     private final String album;

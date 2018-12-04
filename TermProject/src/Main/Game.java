@@ -1,3 +1,5 @@
+package Main;
+
 public class Game extends Product {
     
     private final String platforms;
