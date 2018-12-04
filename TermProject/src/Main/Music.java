@@ -17,12 +17,10 @@ public class Music extends Product {
 
     @Override
     public String toString() {
-        return super.toString() 
-                + "\nArtist : " + artist 
-                + "\nAlbum : " + album 
-                + "\nProducer : " + producer 
+        return super.toString()
+                + "\nArtist : " + artist
+                + "\nAlbum : " + album
+                + "\nProducer : " + producer
                 + "\nLength : " + length;
-
     }
-
 }

@@ -35,5 +35,4 @@ public class ProductManager {
     public static ArrayList<Product> displayAllProduct() {
         return products;
     }
-
 }

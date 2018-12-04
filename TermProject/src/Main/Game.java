@@ -19,7 +19,5 @@ public class Game extends Product {
                 + "\nPlatforms : " + platforms
                 + "\nGame Engine : " + engine
                 + "\nGame Developer : " + developer;
-
     }
-
 }
