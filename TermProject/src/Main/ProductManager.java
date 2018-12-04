@@ -22,6 +22,15 @@ public class ProductManager {
             }
         }
     }
+    public static boolean editProduct(Product m) {
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getProductID() == m.getProductID()) {
+                /*implement edit product codes*/
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static Product searchProduct(int id) {
         for (int i = 0; i < products.size(); i++) {
