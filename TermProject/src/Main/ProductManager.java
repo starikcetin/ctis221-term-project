@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ProductManager {
 
-    public static ArrayList<Product> products = new ArrayList<>();
+    private static ArrayList<Product> products = new ArrayList<>();
 
     public static boolean addProduct(Product product) {
         for (Product it : products) {
