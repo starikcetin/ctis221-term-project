@@ -23,16 +23,6 @@ public class ProductManager {
         }
     }
 
-    public static boolean editProduct(Product product) {
-        for (Product it : products) {
-            if (it.getProductID() == product.getProductID()) {
-                /*implement edit product codes*/
-                return true;
-            }
-        }
-        return false;
-    }
-
     public static Product searchProduct(int id) {
         for (Product it : products) {
             if (it.getProductID() == id) {
