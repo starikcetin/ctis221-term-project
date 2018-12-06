@@ -2,12 +2,12 @@ package Main;
 
 public class Movie extends Product {
 
-    private final String producer;
-    private final String director;
-    private final String country;
-    private final String starring;
-    private final int length;
-    private final double boxOffice;
+    private String producer;
+    private String director;
+    private String country;
+    private String starring;
+    private int length;
+    private double boxOffice;
 
     public Movie(int productID, int releaseDate, double price, String productName, String publisher, String genre, String language, String type, String producer, String director, String country, String starring, int length, double boxOffice) {
         super(productID, releaseDate, price, productName, publisher, genre, language, type);
