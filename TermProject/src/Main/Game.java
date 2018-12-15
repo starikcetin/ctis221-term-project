@@ -4,9 +4,9 @@ public class Game extends Product {
 
     private String platforms;
     private String engine;
-    private String developer;
+    private Person developer;
 
-    public Game(int productID, int releaseDate, double price, String productName, String publisher, String genre, String language, String type, String platforms, String engine, String developer) {
+    public Game(int productID, int releaseDate, double price, String productName, String publisher, String genre, String language, String type, String platforms, String engine, Person developer) {
         super(productID, releaseDate, price, productName, publisher, genre, language, type);
 
         this.platforms = platforms;

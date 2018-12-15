@@ -1,12 +1,15 @@
 package Main;
 
-public abstract class Product {
+public abstract class Product implements IProduct {
 
     protected int productID;
     protected int releaseDate;
     protected double price;
     protected String productName;
+    
+    // Publisher might be a company, so I am not making it of type Person.
     protected String publisher;
+    
     protected String genre;
     protected String language;
     protected String type;
@@ -22,10 +25,12 @@ public abstract class Product {
         this.type = type;
     }
 
+    @Override
     public int getProductID() {
         return productID;
     }
 
+    @Override
     public String getProductType() {
         return type;
     }
