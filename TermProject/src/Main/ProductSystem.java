@@ -8,7 +8,7 @@ public class ProductSystem {
 
     public static boolean addProduct(IProduct product) {
         for (IProduct it : products) {
-            if (it.getProductID() == product.getProductID()) {
+            if (it.getProductId() == product.getProductId()) {
                 return false;
             }
         }
@@ -27,17 +27,17 @@ public class ProductSystem {
 
     public static IProduct searchProduct(int productId) {
         for (IProduct it : products) {
-            if (it.getProductID() == productId) {
+            if (it.getProductId() == productId) {
                 return it;
             }
         }
-        
+
         return null;
     }
 
     public static IProduct deleteProduct(int productId) {
         for (IProduct it : products) {
-            if (it.getProductID() == productId) {
+            if (it.getProductId() == productId) {
                 products.remove(it);
                 return it;
             }
