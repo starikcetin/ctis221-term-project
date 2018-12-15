@@ -6,7 +6,7 @@ public class ProductSystem {
 
     private static ArrayList<IProduct> products = new ArrayList<IProduct>();
 
-    public static boolean addProduct(Product product) {
+    public static boolean addProduct(IProduct product) {
         for (IProduct it : products) {
             if (it.getProductID() == product.getProductID()) {
                 return false;
