@@ -2,11 +2,11 @@ package Main;
 
 public interface IProduct {
 
-    int getProductID();
+    public int getProductID();
 
-    String getProductType();
+    public String getProductType();
 
     @Override
-    String toString();
+    public String toString();
 
 }
