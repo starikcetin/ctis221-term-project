@@ -1,7 +1,6 @@
 package Main;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Movie extends Product {
 
