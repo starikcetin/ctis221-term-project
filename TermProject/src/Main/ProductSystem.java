@@ -15,6 +15,8 @@ public class ProductSystem {
         return products.add(product);
     }
 
+    // Returns all products' toString(), 
+    // concatenated with a blank line in between each one.
     public static String displayProducts() {
         String result = "";
 
@@ -35,6 +37,7 @@ public class ProductSystem {
         return null;
     }
 
+    // Returns the deleted item or null
     public static IProduct deleteProduct(int productId) {
         for (IProduct it : products) {
             if (it.getProductId() == productId) {
