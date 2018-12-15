@@ -19,7 +19,7 @@ public class ProductSystem {
         String result = "";
 
         for (IProduct it : products) {
-            result += it.toString();
+            result += it.toString() + "\n";
         }
 
         return result;
