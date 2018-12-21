@@ -41,7 +41,7 @@ public class StoreScreen extends javax.swing.JFrame {
 
         returnItemButton.setText("RETURN ITEM");
 
-        searchInput.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
+        searchInput.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         searchButton.setText("SEARCH 🔎");
 
