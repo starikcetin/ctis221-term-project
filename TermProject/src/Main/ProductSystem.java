@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ProductSystem {
 
-    private static ArrayList<IProduct> products = new ArrayList<IProduct>();
+    private static ArrayList<IProduct> products = new ArrayList<>();
 
     public static boolean addProduct(IProduct product) {
         for (IProduct it : products) {
