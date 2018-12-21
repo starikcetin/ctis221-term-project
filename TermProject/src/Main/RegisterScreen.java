@@ -1,25 +1,25 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package Main;
 
-/**
- *
- * @author bersl
- */
+
+
 public class RegisterScreen extends javax.swing.JFrame {
-
     
-   
-
-    public RegisterScreen() {
-                
-
+    
+    
+    public RegisterScreen()  {
+        
         initComponents();
+        
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
-
+    
+    
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,7 +42,6 @@ public class RegisterScreen extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         registerButton = new javax.swing.JButton();
         closeButton = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         passwordInput1 = new javax.swing.JPasswordField();
         passwordInput2 = new javax.swing.JPasswordField();
 
@@ -71,15 +70,6 @@ public class RegisterScreen extends javax.swing.JFrame {
         closeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         closeButton.setText("PLEASE FILL THE FORM");
 
-        jButton2.setBackground(new java.awt.Color(204, 0, 51));
-        jButton2.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jButton2.setText("X");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -102,14 +92,11 @@ public class RegisterScreen extends javax.swing.JFrame {
                         .addGap(104, 104, 104))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(nameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
-                                .addComponent(jButton2))
+                            .addComponent(nameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(emailInput)
                             .addComponent(surnameInput)
                             .addComponent(usernameInput))
-                        .addContainerGap())))
+                        .addContainerGap(109, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(156, 156, 156)
                 .addComponent(registerButton)
@@ -127,17 +114,12 @@ public class RegisterScreen extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(closeButton)
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton2)))
+                .addGap(25, 25, 25)
+                .addComponent(closeButton)
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(surnameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -169,11 +151,7 @@ public class RegisterScreen extends javax.swing.JFrame {
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         //IF SUCCESFUL ADD DISPOSE();
     }//GEN-LAST:event_registerButtonActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -182,7 +160,6 @@ public class RegisterScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel closeButton;
     private javax.swing.JTextField emailInput;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
