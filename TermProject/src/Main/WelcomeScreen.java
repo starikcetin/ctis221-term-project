@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Main;
 
-/**
- *
- * @author bersl
- */
 public class WelcomeScreen extends javax.swing.JFrame {
 
-    RegisterScreen r=new RegisterScreen();
-    StoreScreen s=new StoreScreen();
+    RegisterScreen r = new RegisterScreen();
+    StoreScreen s = new StoreScreen();
+
     public WelcomeScreen() {
         initComponents();
     }
@@ -115,7 +107,7 @@ public class WelcomeScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-       r.setVisible(true);
+        r.setVisible(true);
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
@@ -123,9 +115,6 @@ public class WelcomeScreen extends javax.swing.JFrame {
         // check if login is succesful and if yes add dispose();
     }//GEN-LAST:event_loginButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

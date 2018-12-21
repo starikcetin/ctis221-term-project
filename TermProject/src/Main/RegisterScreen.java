@@ -1,26 +1,14 @@
-/*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
-*/
 package Main;
 
-
-
 public class RegisterScreen extends javax.swing.JFrame {
-    
-    
-    
-    public RegisterScreen()  {
-        
+
+    public RegisterScreen() {
+
         initComponents();
-        
+
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
-    
-    
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,7 +29,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         registerButton = new javax.swing.JButton();
-        closeButton = new javax.swing.JLabel();
+        titleLabel = new javax.swing.JLabel();
         passwordInput1 = new javax.swing.JPasswordField();
         passwordInput2 = new javax.swing.JPasswordField();
 
@@ -66,9 +54,9 @@ public class RegisterScreen extends javax.swing.JFrame {
             }
         });
 
-        closeButton.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        closeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        closeButton.setText("PLEASE FILL THE FORM");
+        titleLabel.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titleLabel.setText("PLEASE FILL THE FORM");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,26 +72,21 @@ public class RegisterScreen extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
                 .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(passwordInput1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(passwordInput2, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(104, 104, 104))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(emailInput)
-                            .addComponent(surnameInput)
-                            .addComponent(usernameInput))
-                        .addContainerGap(109, Short.MAX_VALUE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(passwordInput1)
+                    .addComponent(passwordInput2)
+                    .addComponent(nameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emailInput)
+                    .addComponent(surnameInput)
+                    .addComponent(usernameInput))
+                .addGap(109, 109, 109))
             .addGroup(layout.createSequentialGroup()
                 .addGap(156, 156, 156)
                 .addComponent(registerButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(closeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -115,7 +98,7 @@ public class RegisterScreen extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(closeButton)
+                .addComponent(titleLabel)
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -151,14 +134,8 @@ public class RegisterScreen extends javax.swing.JFrame {
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         //IF SUCCESFUL ADD DISPOSE();
     }//GEN-LAST:event_registerButtonActionPerformed
-    
-    /**
-     * @param args the command line arguments
-     */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel closeButton;
     private javax.swing.JTextField emailInput;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -171,6 +148,7 @@ public class RegisterScreen extends javax.swing.JFrame {
     private javax.swing.JPasswordField passwordInput2;
     private javax.swing.JButton registerButton;
     private javax.swing.JTextField surnameInput;
+    private javax.swing.JLabel titleLabel;
     private javax.swing.JTextField usernameInput;
     // End of variables declaration//GEN-END:variables
 }
