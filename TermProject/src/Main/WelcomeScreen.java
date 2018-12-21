@@ -12,6 +12,7 @@ package Main;
 public class WelcomeScreen extends javax.swing.JFrame {
 
     RegisterScreen r=new RegisterScreen();
+    StoreScreen s=new StoreScreen();
     public WelcomeScreen() {
         initComponents();
     }
@@ -43,6 +44,11 @@ public class WelcomeScreen extends javax.swing.JFrame {
         });
 
         loginButton.setText("LOGIN");
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButtonActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("USERNAME");
 
@@ -111,6 +117,11 @@ public class WelcomeScreen extends javax.swing.JFrame {
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
        r.setVisible(true);
     }//GEN-LAST:event_registerButtonActionPerformed
+
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        s.setVisible(true);
+        // check if login is succesful and if yes add dispose();
+    }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
      * @param args the command line arguments
