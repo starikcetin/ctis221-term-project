@@ -1,4 +1,4 @@
-package Main;
+package UI;
 
 public class StoreScreen extends javax.swing.JFrame {
 

@@ -1,4 +1,4 @@
-package Main;
+package UI;
 
 public class RegisterScreen extends javax.swing.JFrame {
 

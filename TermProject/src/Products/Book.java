@@ -1,4 +1,7 @@
-package Main;
+package Products;
+
+import Core.Person;
+import Core.Product;
 
 public class Book extends Product {
 

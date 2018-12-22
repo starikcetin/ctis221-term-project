@@ -1,4 +1,4 @@
-package Main;
+package Core;
 
 public interface IProduct {
 

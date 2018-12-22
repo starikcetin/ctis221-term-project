@@ -1,5 +1,7 @@
-package Main;
+package Products;
 
+import Core.Product;
+import Core.Person;
 import java.util.ArrayList;
 
 public class Movie extends Product {

@@ -1,4 +1,4 @@
-package Main;
+package UI;
 
 public class WelcomeScreen extends javax.swing.JFrame {
 

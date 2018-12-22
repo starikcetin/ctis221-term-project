@@ -1,4 +1,7 @@
-package Main;
+package Products;
+
+import Core.Product;
+import Core.Person;
 
 public class Game extends Product {
 
