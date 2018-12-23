@@ -1,27 +1,13 @@
 package Products;
 
-import Core.Person;
 import Core.Product;
+import ProductMetadata.BookInfo;
 
 public class Book extends Product {
 
-    private int pageCount;
-    private int isbn;
-    private Person author;
+    private BookInfo bookInfo;
 
-    public Book(int releaseDate, double price, String productName, String publisher, String genre, String language, int pageCount, int isbn, Person author) {
-        super(releaseDate, price, productName, publisher, genre, language);
-
-        this.pageCount = pageCount;
-        this.isbn = isbn;
-        this.author = author;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString()
-                + "\nISBN: " + isbn
-                + "\nAuthor: " + author
-                + "\nPage Count: " + pageCount;
+    public Book(BookInfo bookInfo) {
+        this.bookInfo = bookInfo;
     }
 }
