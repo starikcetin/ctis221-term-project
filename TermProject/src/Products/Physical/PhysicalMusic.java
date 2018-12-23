@@ -1,7 +1,7 @@
 package Products.Physical;
 
 import Core.PhysicalProduct;
-import ProductMetadata.MusicInfo;
+import ProductInfos.MusicInfo;
 
 public class PhysicalMusic extends PhysicalProduct {
 

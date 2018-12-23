@@ -1,7 +1,7 @@
 package Products.Digital;
 
 import Core.DigitalProduct;
-import ProductMetadata.GameInfo;
+import ProductInfos.GameInfo;
 
 public class DigitalGame extends DigitalProduct {
 

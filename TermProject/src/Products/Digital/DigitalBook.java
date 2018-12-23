@@ -1,7 +1,7 @@
 package Products.Digital;
 
 import Core.DigitalProduct;
-import ProductMetadata.BookInfo;
+import ProductInfos.BookInfo;
 
 public class DigitalBook extends DigitalProduct {
 

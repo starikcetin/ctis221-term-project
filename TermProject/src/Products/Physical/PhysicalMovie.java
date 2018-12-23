@@ -1,7 +1,7 @@
 package Products.Physical;
 
 import Core.PhysicalProduct;
-import ProductMetadata.MovieInfo;
+import ProductInfos.MovieInfo;
 
 public class PhysicalMovie extends PhysicalProduct {
 

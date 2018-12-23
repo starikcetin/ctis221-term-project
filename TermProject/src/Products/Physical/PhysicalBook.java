@@ -1,7 +1,7 @@
 package Products.Physical;
 
 import Core.PhysicalProduct;
-import ProductMetadata.BookInfo;
+import ProductInfos.BookInfo;
 
 public class PhysicalBook extends PhysicalProduct {
 

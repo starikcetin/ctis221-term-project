@@ -1,4 +1,4 @@
-package ProductMetadata;
+package ProductInfos;
 
 import Core.ProductInfo;
 import Core.Person;
