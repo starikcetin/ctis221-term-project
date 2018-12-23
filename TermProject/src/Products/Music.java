@@ -12,8 +12,8 @@ public class Music extends Product {
     // Producer might be a company, so I am not making it of type Person.
     private String producer;
 
-    public Music(int releaseDate, double price, String productName, String publisher, String genre, String language, String type, String album, Person artist, String length, String producer) {
-        super(releaseDate, price, productName, publisher, genre, language, type);
+    public Music(int releaseDate, double price, String productName, String publisher, String genre, String language, String album, Person artist, String length, String producer) {
+        super(releaseDate, price, productName, publisher, genre, language);
 
         this.album = album;
         this.artist = artist;

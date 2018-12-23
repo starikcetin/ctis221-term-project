@@ -15,9 +15,8 @@ public abstract class Product implements IProduct {
 
     protected String genre;
     protected String language;
-    protected String type;
 
-    public Product(int releaseDate, double price, String productName, String publisher, String genre, String language, String type) {
+    public Product(int releaseDate, double price, String productName, String publisher, String genre, String language) {
         this.productId = nextProductId();
 
         this.releaseDate = releaseDate;
@@ -26,7 +25,6 @@ public abstract class Product implements IProduct {
         this.publisher = publisher;
         this.genre = genre;
         this.language = language;
-        this.type = type;
     }
 
     private static int nextProductId() {
@@ -36,11 +34,6 @@ public abstract class Product implements IProduct {
     @Override
     public int getProductId() {
         return productId;
-    }
-
-    @Override
-    public String getProductType() {
-        return type;
     }
 
     @Override

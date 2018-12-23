@@ -15,8 +15,8 @@ public class Movie extends Product {
     private int length;
     private double boxOffice;
 
-    public Movie(int releaseDate, double price, String productName, String publisher, String genre, String language, String type, String producer, Person director, String country, ArrayList<Person> starring, int length, double boxOffice) {
-        super(releaseDate, price, productName, publisher, genre, language, type);
+    public Movie(int releaseDate, double price, String productName, String publisher, String genre, String language, String producer, Person director, String country, ArrayList<Person> starring, int length, double boxOffice) {
+        super(releaseDate, price, productName, publisher, genre, language);
 
         this.producer = producer;
         this.director = director;

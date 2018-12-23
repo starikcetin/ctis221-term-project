@@ -9,8 +9,8 @@ public class Book extends Product {
     private int isbn;
     private Person author;
 
-    public Book(int releaseDate, double price, String productName, String publisher, String genre, String language, String type, int pageCount, int isbn, Person author) {
-        super(releaseDate, price, productName, publisher, genre, language, type);
+    public Book(int releaseDate, double price, String productName, String publisher, String genre, String language, int pageCount, int isbn, Person author) {
+        super(releaseDate, price, productName, publisher, genre, language);
 
         this.pageCount = pageCount;
         this.isbn = isbn;
