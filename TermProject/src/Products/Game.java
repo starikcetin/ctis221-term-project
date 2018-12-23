@@ -1,27 +1,13 @@
 package Products;
 
 import Core.Product;
-import Core.Person;
+import ProductMetadata.GameInfo;
 
 public class Game extends Product {
 
-    private String platforms;
-    private String engine;
-    private Person developer;
+    private GameInfo gameInfo;
 
-    public Game(int releaseDate, double price, String productName, String publisher, String genre, String language, String platforms, String engine, Person developer) {
-        super(releaseDate, price, productName, publisher, genre, language);
-
-        this.platforms = platforms;
-        this.engine = engine;
-        this.developer = developer;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString()
-                + "\nPlatforms: " + platforms
-                + "\nEngine: " + engine
-                + "\nDeveloper: " + developer;
+    public Game(GameInfo gameInfo) {
+        this.gameInfo = gameInfo;
     }
 }
