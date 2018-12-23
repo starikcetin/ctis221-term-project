@@ -1,4 +1,4 @@
-package ProductMetadata;
+package Core;
 
 public abstract class ProductInfo {
 

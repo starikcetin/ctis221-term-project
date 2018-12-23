@@ -1,5 +1,6 @@
 package ProductMetadata;
 
+import Core.ProductInfo;
 import Core.Person;
 
 public class MusicInfo extends ProductInfo {
