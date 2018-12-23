@@ -1,4 +1,4 @@
-package Products;
+package Products.Digital;
 
 import Core.Product;
 import ProductMetadata.MovieInfo;
