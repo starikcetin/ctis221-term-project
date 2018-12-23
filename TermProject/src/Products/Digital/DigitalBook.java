@@ -1,13 +1,13 @@
 package Products.Digital;
 
-import Core.Product;
+import Core.DigitalProduct;
 import ProductMetadata.BookInfo;
 
-public class Book extends Product {
+public class DigitalBook extends DigitalProduct {
 
     private BookInfo bookInfo;
 
-    public Book(BookInfo bookInfo) {
+    public DigitalBook(BookInfo bookInfo) {
         this.bookInfo = bookInfo;
     }
 }

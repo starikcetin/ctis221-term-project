@@ -1,13 +1,13 @@
 package Products.Digital;
 
-import Core.Product;
+import Core.DigitalProduct;
 import ProductMetadata.MovieInfo;
 
-public class Movie extends Product {
+public class DigitalMovie extends DigitalProduct {
 
     private MovieInfo movieInfo;
 
-    public Movie(MovieInfo movieInfo) {
+    public DigitalMovie(MovieInfo movieInfo) {
         this.movieInfo = movieInfo;
     }
 }

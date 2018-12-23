@@ -1,13 +1,13 @@
 package Products.Digital;
 
-import Core.Product;
+import Core.DigitalProduct;
 import ProductMetadata.MusicInfo;
 
-public class Music extends Product {
+public class DigitalMusic extends DigitalProduct {
 
     private MusicInfo musicInfo;
 
-    public Music(MusicInfo musicInfo) {
+    public DigitalMusic(MusicInfo musicInfo) {
         this.musicInfo = musicInfo;
     }
 }
