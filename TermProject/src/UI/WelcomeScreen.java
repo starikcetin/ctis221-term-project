@@ -109,6 +109,9 @@ public class WelcomeScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        String username = usernameInput.getText();
+        char[] password = passwordInput.getPassword();
+
         WindowManager.inventoryScreen.setVisible(true);
         this.setVisible(false);
         // check if login is succesful and if yes add dispose();
