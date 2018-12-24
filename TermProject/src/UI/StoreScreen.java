@@ -84,8 +84,13 @@ public class StoreScreen extends javax.swing.JFrame {
         output.setText("output panel");
 
         addProductButton.setText("ADD PRODUCT");
+        addProductButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addProductButtonActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("jButton1");
+        jButton1.setText("INVENTORY");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -168,8 +173,12 @@ public class StoreScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         
+        new InventoryScreen().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void addProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProductButtonActionPerformed
+         p.setVisible(true);
+    }//GEN-LAST:event_addProductButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addProductButton;
