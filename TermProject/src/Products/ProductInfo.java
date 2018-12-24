@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public abstract class ProductInfo implements Serializable {
 
-    protected int releaseDate;
+    protected String releaseDate;
     protected double price;
     protected String productName;
 
@@ -14,7 +14,7 @@ public abstract class ProductInfo implements Serializable {
     protected String genre;
     protected String language;
 
-    public ProductInfo(int releaseDate, double price, String productName, String publisher, String genre, String language) {
+    public ProductInfo(String releaseDate, double price, String productName, String publisher, String genre, String language) {
         this.releaseDate = releaseDate;
         this.price = price;
         this.productName = productName;
@@ -34,11 +34,11 @@ public abstract class ProductInfo implements Serializable {
                 + "\nLanguage: " + language;
     }
 
-    public int getReleaseDate() {
+    public String getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(int releaseDate) {
+    public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
     }
 

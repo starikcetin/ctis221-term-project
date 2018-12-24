@@ -15,7 +15,7 @@ public class MovieInfo extends ProductInfo {
     private int length;
     private double boxOffice;
 
-    public MovieInfo(String producer, Person director, String country, ArrayList<Person> starring, int length, double boxOffice, int releaseDate, double price, String productName, String publisher, String genre, String language) {
+    public MovieInfo(String producer, Person director, String country, ArrayList<Person> starring, int length, double boxOffice, String releaseDate, double price, String productName, String publisher, String genre, String language) {
         super(releaseDate, price, productName, publisher, genre, language);
         this.producer = producer;
         this.director = director;
@@ -45,5 +45,53 @@ public class MovieInfo extends ProductInfo {
 
         // -2 is for removing the redundant comma and space at the end.
         return concated.substring(0, concated.length() - 2);
+    }
+
+    public String getProducer() {
+        return producer;
+    }
+
+    public void setProducer(String producer) {
+        this.producer = producer;
+    }
+
+    public Person getDirector() {
+        return director;
+    }
+
+    public void setDirector(Person director) {
+        this.director = director;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public ArrayList<Person> getStarring() {
+        return starring;
+    }
+
+    public void setStarring(ArrayList<Person> starring) {
+        this.starring = starring;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public double getBoxOffice() {
+        return boxOffice;
+    }
+
+    public void setBoxOffice(double boxOffice) {
+        this.boxOffice = boxOffice;
     }
 }

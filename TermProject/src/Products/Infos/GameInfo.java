@@ -9,7 +9,7 @@ public class GameInfo extends ProductInfo {
     private String engine;
     private Person developer;
 
-    public GameInfo(String platforms, String engine, Person developer, int releaseDate, double price, String productName, String publisher, String genre, String language) {
+    public GameInfo(String platforms, String engine, Person developer, String releaseDate, double price, String productName, String publisher, String genre, String language) {
         super(releaseDate, price, productName, publisher, genre, language);
         this.platforms = platforms;
         this.engine = engine;
@@ -23,4 +23,30 @@ public class GameInfo extends ProductInfo {
                 + "\nEngine: " + engine
                 + "\nDeveloper: " + developer;
     }
+
+    public String getPlatforms() {
+        return platforms;
+    }
+
+    public void setPlatforms(String platforms) {
+        this.platforms = platforms;
+    }
+
+    public String getEngine() {
+        return engine;
+    }
+
+    public void setEngine(String engine) {
+        this.engine = engine;
+    }
+
+    public Person getDeveloper() {
+        return developer;
+    }
+
+    public void setDeveloper(Person developer) {
+        this.developer = developer;
+    }
+    
+    
 }

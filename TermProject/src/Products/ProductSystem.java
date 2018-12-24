@@ -1,6 +1,5 @@
 package Products;
 
-import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -63,6 +62,18 @@ public class ProductSystem {
         return products;
     }
 
+    public static ArrayList<IProduct> getAllProducts(MediumType medium, ProductType type) {
+        ArrayList<IProduct> result = new ArrayList<>();
+
+        for (IProduct it : products) {
+            if (it.getMediumType() == medium && it.getProductType() == type) {
+                result.add(it);
+            }
+        }
+
+        return result;
+    }
+
     public static void saveAllToFile() throws FileNotFoundException, IOException {
         ObjectOutputStream dos = new ObjectOutputStream(new FileOutputStream(new File(SAVE_FILE_NAME)));
         dos.writeObject(products);
@@ -73,7 +84,7 @@ public class ProductSystem {
         if (!f.exists()) {
             throw new FileNotFoundException();
         }
-        
+
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
         products = (ArrayList<IProduct>) ois.readObject();
     }

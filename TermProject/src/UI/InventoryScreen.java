@@ -6,9 +6,9 @@
 package UI;
 
 import Products.IProduct;
-import Products.ProductInfo;
 import Products.ProductSystem;
 import Users.UserSystem;
+import Utils.UiUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -27,27 +27,17 @@ public class InventoryScreen extends javax.swing.JFrame {
         initComponents();
     }
 
-    private void fillTheForm() {
+    private void filltheTable() {
         itemTable.removeAll();
         ArrayList<IProduct> allProducts = ProductSystem.getAllProducts();
 
+        DefaultTableModel dtm = (DefaultTableModel) itemTable.getModel();
+
         for (int i = 0; i < allProducts.size(); i++) {
             IProduct it = allProducts.get(i);
-
             tableIndexToProductIdMap.put(i, it.getProductId());
-            ((DefaultTableModel) itemTable.getModel()).addRow(convertProductToRowItem(it));
+            dtm.addRow(UiUtils.convertProductToRowItem(it));
         }
-    }
-
-    private String[] convertProductToRowItem(IProduct product) {
-        ProductInfo pi = product.getProductInfo();
-        return new String[]{pi.getProductName(),
-            pi.getGenre(),
-            pi.getLanguage(),
-            pi.getPublisher(),
-            Integer.toString(pi.getReleaseDate()),
-            Double.toString(pi.getPrice())
-        };
     }
 
     /**
@@ -199,7 +189,7 @@ public class InventoryScreen extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         usernameOutput.setText(UserSystem.getLoggedInUser().getName().toUpperCase() + " " + UserSystem.getLoggedInUser().getSurname().toUpperCase());
-        fillTheForm();
+        filltheTable();
     }//GEN-LAST:event_formWindowActivated
 
     /**

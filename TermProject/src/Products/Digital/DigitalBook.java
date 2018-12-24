@@ -3,6 +3,7 @@ package Products.Digital;
 import Products.DigitalProduct;
 import Products.Infos.BookInfo;
 import Products.ProductInfo;
+import Products.ProductType;
 
 public class DigitalBook extends DigitalProduct {
 
@@ -15,5 +16,10 @@ public class DigitalBook extends DigitalProduct {
     @Override
     public ProductInfo getProductInfo() {
         return bookInfo;
+    }
+
+    @Override
+    public ProductType getProductType() {
+        return ProductType.Book;
     }
 }

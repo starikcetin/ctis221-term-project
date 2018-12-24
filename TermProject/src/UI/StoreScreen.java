@@ -1,17 +1,75 @@
 package UI;
 
+import Products.IProduct;
+import Products.MediumType;
+import Products.ProductSystem;
+import Products.ProductType;
 import Users.UserSystem;
+import Utils.UiUtils;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
 
 public class StoreScreen extends javax.swing.JFrame {
+
+    private Map<Integer, Integer> tableIndexToProductIdMap = new HashMap<>();
 
     public StoreScreen() {
 
         initComponents();
-        addProductButton.setVisible(false);
-        if (UserSystem.getLoggedInUser().isAdmin() == true) {
-            addProductButton.setVisible(true);
+
+        // product type combobox fill
+        productType.setModel(new DefaultComboBoxModel(ProductType.values()));
+    }
+
+    private void fillTheTable() {
+        itemTable.removeAll();
+        ArrayList<IProduct> allProducts = ProductSystem.getAllProducts();
+
+        DefaultTableModel dtm = (DefaultTableModel) itemTable.getModel();
+
+        for (int i = 0; i < allProducts.size(); i++) {
+            IProduct it = allProducts.get(i);
+            tableIndexToProductIdMap.put(i, it.getProductId());
+            dtm.addRow(UiUtils.convertProductToRowItem(it));
+        }
+    }
+
+    private void fillTheTable(MediumType medium, ProductType type) {
+        itemTable.removeAll();
+        ArrayList<IProduct> allProducts = ProductSystem.getAllProducts(medium, type);
+
+        DefaultTableModel dtm = (DefaultTableModel) itemTable.getModel();
+
+        for (int i = 0; i < allProducts.size(); i++) {
+            IProduct it = allProducts.get(i);
+            tableIndexToProductIdMap.put(i, it.getProductId());
+            dtm.addRow(UiUtils.convertProductToRowItem(it));
+        }
+    }
+
+    private void refreshTableWithFilters() {
+        fillTheTable(getSelectedMediumType(), getSelectedProductType());
+    }
+
+    private MediumType getSelectedMediumType() {
+        MediumType medium = MediumType.Physical;
+        if (digitalMedium.isSelected()) {
+            medium = MediumType.Digital;
         }
 
+        return medium;
+    }
+
+    private ProductType getSelectedProductType() {
+        return (ProductType) productType.getSelectedItem();
+    }
+
+    private IProduct getSelectedProduct() {
+        int selectedProductId = tableIndexToProductIdMap.get(itemTable.getSelectedRow());
+        return ProductSystem.searchProduct(selectedProductId);
     }
 
     /**
@@ -45,6 +103,12 @@ public class StoreScreen extends javax.swing.JFrame {
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
+            }
+        });
+
+        productType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productTypeActionPerformed(evt);
             }
         });
 
@@ -95,10 +159,21 @@ public class StoreScreen extends javax.swing.JFrame {
         jLabel2.setText("MEDIUM TYPE");
 
         buttonGroup1.add(digitalMedium);
+        digitalMedium.setSelected(true);
         digitalMedium.setText("Digital");
+        digitalMedium.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                digitalMediumActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(phsyicalMedium);
         phsyicalMedium.setText("Physical");
+        phsyicalMedium.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phsyicalMediumActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("WELCOME");
 
@@ -195,10 +270,14 @@ public class StoreScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void itemTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemTableMouseClicked
-        if (evt.getClickCount() == 2) {
-            WindowManager.ProductInfo.setVisible(true);
-        }
+        IProduct product = getSelectedProduct();
 
+        if (product != null) {
+            if (evt.getClickCount() == 2) {
+                WindowManager.ProductInfo.fillWith(product);
+                WindowManager.ProductInfo.setVisible(true);
+            }
+        }
     }//GEN-LAST:event_itemTableMouseClicked
 
     private void inventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryButtonActionPerformed
@@ -207,12 +286,34 @@ public class StoreScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_inventoryButtonActionPerformed
 
     private void addProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProductButtonActionPerformed
+        WindowManager.ProductInfo.setUpForAdd(getSelectedMediumType(), getSelectedProductType());
         WindowManager.ProductInfo.setVisible(true);
     }//GEN-LAST:event_addProductButtonActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        usernameOutput.setText(UserSystem.getLoggedInUser().getName().toUpperCase() + " " + UserSystem.getLoggedInUser().getSurname().toUpperCase());
+        addProductButton.setVisible(false);
+        if (UserSystem.getLoggedInUser().isAdmin() == true) {
+            addProductButton.setVisible(true);
+        }
+
+        usernameOutput.setText(UserSystem.getLoggedInUser().getName()
+                + " "
+                + UserSystem.getLoggedInUser().getSurname());
+
+        refreshTableWithFilters();
     }//GEN-LAST:event_formWindowActivated
+
+    private void productTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productTypeActionPerformed
+        refreshTableWithFilters();
+    }//GEN-LAST:event_productTypeActionPerformed
+
+    private void phsyicalMediumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phsyicalMediumActionPerformed
+        refreshTableWithFilters();
+    }//GEN-LAST:event_phsyicalMediumActionPerformed
+
+    private void digitalMediumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_digitalMediumActionPerformed
+        refreshTableWithFilters();
+    }//GEN-LAST:event_digitalMediumActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addProductButton;

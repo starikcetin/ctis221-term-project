@@ -12,7 +12,7 @@ public class MusicInfo extends ProductInfo {
     // Producer might be a company, so I am not making it of type Person.
     private String producer;
 
-    public MusicInfo(String album, Person artist, String length, String producer, int releaseDate, double price, String productName, String publisher, String genre, String language) {
+    public MusicInfo(String album, Person artist, String length, String producer, String releaseDate, double price, String productName, String publisher, String genre, String language) {
         super(releaseDate, price, productName, publisher, genre, language);
         this.album = album;
         this.artist = artist;
@@ -28,4 +28,38 @@ public class MusicInfo extends ProductInfo {
                 + "\nProducer: " + producer
                 + "\nLength: " + length;
     }
+
+    public String getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(String album) {
+        this.album = album;
+    }
+
+    public Person getArtist() {
+        return artist;
+    }
+
+    public void setArtist(Person artist) {
+        this.artist = artist;
+    }
+
+    public String getLength() {
+        return length;
+    }
+
+    public void setLength(String length) {
+        this.length = length;
+    }
+
+    public String getProducer() {
+        return producer;
+    }
+
+    public void setProducer(String producer) {
+        this.producer = producer;
+    }
+    
+    
 }
