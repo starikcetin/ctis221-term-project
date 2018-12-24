@@ -5,7 +5,7 @@
 */
 package UI;
 
-import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+
 
 /**
  *
