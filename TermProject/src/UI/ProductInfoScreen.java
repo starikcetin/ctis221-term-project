@@ -16,7 +16,7 @@ public class ProductInfoScreen extends javax.swing.JFrame {
      */
     public ProductInfoScreen() {
         initComponents();
-         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -547,7 +547,6 @@ public class ProductInfoScreen extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bookAuthorOutput;

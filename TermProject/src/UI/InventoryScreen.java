@@ -2,23 +2,19 @@
 * To change this license header, choose License Headers in Project Properties.
 * To change this template file, choose Tools | Templates
 * and open the template in the editor.
-*/
+ */
 package UI;
-
-
 
 /**
  *
  * @author bersl
  */
 public class InventoryScreen extends javax.swing.JFrame {
-    ProductInfoScreen p=new ProductInfoScreen();
-    StoreScreen s=new StoreScreen();
+
     public InventoryScreen() {
         initComponents();
-        
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,7 +24,7 @@ public class InventoryScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        storeButton = new javax.swing.JButton();
         searchInput = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -39,10 +35,10 @@ public class InventoryScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Inventory");
 
-        jButton1.setText("STORE");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        storeButton.setText("STORE");
+        storeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                storeButtonActionPerformed(evt);
             }
         });
 
@@ -101,7 +97,7 @@ public class InventoryScreen extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(storeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 296, Short.MAX_VALUE)
                         .addComponent(searchInput, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
@@ -121,7 +117,7 @@ public class InventoryScreen extends javax.swing.JFrame {
                     .addComponent(searchButton)
                     .addComponent(jLabel3)
                     .addComponent(usernameOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(storeButton))
                 .addGap(25, 25, 25)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(25, Short.MAX_VALUE))
@@ -130,30 +126,27 @@ public class InventoryScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        s.setVisible(true);
+    private void storeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeButtonActionPerformed
+        WindowManager.storeScreen.setVisible(true);
         this.setVisible(false);
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+
+    }//GEN-LAST:event_storeButtonActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-
-        p.setVisible(true);
-
+        WindowManager.productInfoScreen.setVisible(true);
     }//GEN-LAST:event_jTable1MouseClicked
-    
+
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchInput;
+    private javax.swing.JButton storeButton;
     private javax.swing.JLabel usernameOutput;
     // End of variables declaration//GEN-END:variables
 }

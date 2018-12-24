@@ -2,10 +2,6 @@ package UI;
 
 public class WelcomeScreen extends javax.swing.JFrame {
 
-    RegisterScreen r = new RegisterScreen();
-    StoreScreen s = new StoreScreen();
-    InventoryScreen i=new InventoryScreen();
-
     public WelcomeScreen() {
         initComponents();
     }
@@ -109,11 +105,11 @@ public class WelcomeScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        r.setVisible(true);
+        WindowManager.registerScreen.setVisible(true);
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        i.setVisible(true);
+        WindowManager.inventoryScreen.setVisible(true);
         this.setVisible(false);
         // check if login is succesful and if yes add dispose();
     }//GEN-LAST:event_loginButtonActionPerformed

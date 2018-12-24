@@ -1,13 +1,13 @@
 package UI;
 
 public class StoreScreen extends javax.swing.JFrame {
-    ProductInfoScreen p=new ProductInfoScreen();
+
     public StoreScreen() {
-        
+
         initComponents();
-        
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,7 +31,7 @@ public class StoreScreen extends javax.swing.JFrame {
         usernameOutput = new javax.swing.JLabel();
         output = new javax.swing.JLabel();
         addProductButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        inventoryButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Store");
@@ -101,10 +101,10 @@ public class StoreScreen extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("INVENTORY");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        inventoryButton.setText("INVENTORY");
+        inventoryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                inventoryButtonActionPerformed(evt);
             }
         });
 
@@ -118,7 +118,7 @@ public class StoreScreen extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(inventoryButton)
                         .addGap(25, 25, 25)
                         .addComponent(addProductButton)
                         .addGap(25, 25, 25)
@@ -145,7 +145,7 @@ public class StoreScreen extends javax.swing.JFrame {
                 .addGap(0, 30, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addProductButton, buyButton, jButton1});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addProductButton, buyButton, inventoryButton});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,7 +168,7 @@ public class StoreScreen extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(buyButton)
                         .addComponent(addProductButton)
-                        .addComponent(jButton1))
+                        .addComponent(inventoryButton))
                     .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
@@ -177,25 +177,25 @@ public class StoreScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-       
-        p.setVisible(true);
-        
+
+        WindowManager.productInfoScreen.setVisible(true);
+
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new InventoryScreen().setVisible(true);
+    private void inventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryButtonActionPerformed
+        WindowManager.inventoryScreen.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_inventoryButtonActionPerformed
 
     private void addProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProductButtonActionPerformed
-         p.setVisible(true);
+        WindowManager.productInfoScreen.setVisible(true);
     }//GEN-LAST:event_addProductButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addProductButton;
     private javax.swing.JButton buyButton;
     private javax.swing.JRadioButton digitalMedium;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton inventoryButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
