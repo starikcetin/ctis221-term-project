@@ -1,7 +1,7 @@
 package Products.Digital;
 
 import Products.DigitalProduct;
-import ProductInfos.MusicInfo;
+import Products.Infos.MusicInfo;
 
 public class DigitalMusic extends DigitalProduct {
 

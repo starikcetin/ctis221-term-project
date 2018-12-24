@@ -1,7 +1,7 @@
 package Products.Digital;
 
 import Products.DigitalProduct;
-import ProductInfos.MovieInfo;
+import Products.Infos.MovieInfo;
 
 public class DigitalMovie extends DigitalProduct {
 

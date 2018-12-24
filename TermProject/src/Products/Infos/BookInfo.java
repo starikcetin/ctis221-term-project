@@ -1,4 +1,4 @@
-package ProductInfos;
+package Products.Infos;
 
 import Products.ProductInfo;
 import Products.Person;

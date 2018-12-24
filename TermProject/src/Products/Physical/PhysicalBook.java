@@ -1,7 +1,7 @@
 package Products.Physical;
 
 import Products.PhysicalProduct;
-import ProductInfos.BookInfo;
+import Products.Infos.BookInfo;
 
 public class PhysicalBook extends PhysicalProduct {
 
