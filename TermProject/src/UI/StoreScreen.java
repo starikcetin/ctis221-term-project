@@ -34,6 +34,7 @@ public class StoreScreen extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Store");
 
         buyButton.setText("BUY");
 
@@ -78,7 +79,7 @@ public class StoreScreen extends javax.swing.JFrame {
         jLabel3.setText("WELCOME");
 
         usernameOutput.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
-        usernameOutput.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        usernameOutput.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         usernameOutput.setText("NAME SURNAME");
 
         output.setText("output panel");
@@ -108,9 +109,9 @@ public class StoreScreen extends javax.swing.JFrame {
                         .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)
-                        .addGap(18, 18, 18)
+                        .addGap(25, 25, 25)
                         .addComponent(addProductButton)
-                        .addGap(18, 18, 18)
+                        .addGap(25, 25, 25)
                         .addComponent(buyButton))
                     .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -134,7 +135,7 @@ public class StoreScreen extends javax.swing.JFrame {
                 .addGap(0, 25, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addProductButton, buyButton, searchButton, searchInput});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addProductButton, buyButton, jButton1, searchButton, searchInput});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,14 +154,14 @@ public class StoreScreen extends javax.swing.JFrame {
                         .addComponent(jLabel3)))
                 .addGap(25, 25, 25)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(buyButton)
                         .addComponent(addProductButton)
                         .addComponent(jButton1))
                     .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -174,6 +175,7 @@ public class StoreScreen extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new InventoryScreen().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void addProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProductButtonActionPerformed

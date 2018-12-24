@@ -133,6 +133,7 @@ public class RegisterScreen extends javax.swing.JFrame {
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         //IF SUCCESFUL ADD DISPOSE();
+        this.setVisible(false);
     }//GEN-LAST:event_registerButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

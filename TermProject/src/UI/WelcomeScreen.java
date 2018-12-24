@@ -28,6 +28,7 @@ public class WelcomeScreen extends javax.swing.JFrame {
         passwordInput = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Welcome to Store");
 
         registerButton.setText("REGISTER");
         registerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -69,9 +70,9 @@ public class WelcomeScreen extends javax.swing.JFrame {
                         .addComponent(passwordInput, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
+                .addContainerGap(96, Short.MAX_VALUE)
                 .addComponent(registerButton)
-                .addGap(21, 21, 21)
+                .addGap(25, 25, 25)
                 .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(101, 101, 101))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -113,6 +114,7 @@ public class WelcomeScreen extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         i.setVisible(true);
+        this.setVisible(false);
         // check if login is succesful and if yes add dispose();
     }//GEN-LAST:event_loginButtonActionPerformed
 

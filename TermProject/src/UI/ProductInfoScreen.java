@@ -81,6 +81,7 @@ public class ProductInfoScreen extends javax.swing.JFrame {
         musicAlbumOutput = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Product Information");
 
         imageOutput.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         imageOutput.setPreferredSize(new java.awt.Dimension(400, 400));
