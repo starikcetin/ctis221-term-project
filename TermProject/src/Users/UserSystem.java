@@ -62,6 +62,11 @@ public class UserSystem {
     // reads all the user info from save file and reconstructs the arrayList.
     public static void readAllFromFile() throws FileNotFoundException {
         File f = new File(SAVE_FILE_NAME);
+        
+        if (!f.exists()) {
+            throw new FileNotFoundException();
+        }
+        
         try (Scanner sc = new Scanner(f)) {
             users.clear();
             

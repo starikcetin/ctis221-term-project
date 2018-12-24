@@ -16,7 +16,7 @@ public class WelcomeScreen extends javax.swing.JFrame {
             UserSystem.readAllFromFile();
             ProductSystem.readAllFromFile();
         } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, "File error.");
+            // file not exists shouldn't show any errors.
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, "File error.");
         } catch (ClassNotFoundException ex) {
