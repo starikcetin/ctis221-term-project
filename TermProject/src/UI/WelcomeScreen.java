@@ -1,9 +1,11 @@
 package UI;
 
+import Core.ProductSystem;
 import Users.User;
 import Users.UserSystem;
 import java.awt.event.KeyEvent;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 
 public class WelcomeScreen extends javax.swing.JFrame {
@@ -12,9 +14,13 @@ public class WelcomeScreen extends javax.swing.JFrame {
         initComponents();
         try {
             UserSystem.readAllFromFile();
+            ProductSystem.readAllFromFile();
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(null, "File error.");
-
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "File error.");
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Binary format error.");
         }
     }
 
@@ -58,6 +64,11 @@ public class WelcomeScreen extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Welcome to Store");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         registerButton.setText("REGISTER");
         registerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -169,6 +180,10 @@ public class WelcomeScreen extends javax.swing.JFrame {
             System.out.println("enter");
         }
     }//GEN-LAST:event_passwordInputKeyPressed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowActivated
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
