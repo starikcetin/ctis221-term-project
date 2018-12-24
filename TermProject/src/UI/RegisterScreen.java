@@ -2,17 +2,20 @@ package UI;
 
 import Users.User;
 import Users.UserSystem;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class RegisterScreen extends javax.swing.JFrame {
-
+    
     public RegisterScreen() {
-
+        
         initComponents();
-
+        
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -142,12 +145,12 @@ public class RegisterScreen extends javax.swing.JFrame {
         String email = emailInput.getText();
         char[] password = passwordInput.getPassword();
         char[] passwordValidate = passwordValidationInput.getPassword();
-
-        if (name.isEmpty() 
-                || surname.isEmpty() 
-                || username.isEmpty() 
-                || email.isEmpty() 
-                || password.length == 0 
+        
+        if (name.isEmpty()
+                || surname.isEmpty()
+                || username.isEmpty()
+                || email.isEmpty()
+                || password.length == 0
                 || passwordValidate.length == 0) {
             JOptionPane.showMessageDialog(null, "Please fill in all the fields.");
             return;
@@ -158,25 +161,44 @@ public class RegisterScreen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Passwords don't match!");
             return;
         }
-
+        
         for (int i = 0; i < password.length; i++) {
             if (password[i] != passwordValidate[i]) {
                 JOptionPane.showMessageDialog(null, "Passwords don't match!");
                 return;
             }
         }
-
+        
         User newUser = new User(name, surname, email, username, password, false);
         boolean successful = UserSystem.addUser(newUser);
-
+        
         if (!successful) {
             JOptionPane.showMessageDialog(null, "Username already exists!");
             return;
         }
         
         JOptionPane.showMessageDialog(null, "Registration successful.");
+        
+        try {
+            UserSystem.writeAllToFile();
+        } catch (IOException ex) {
+            UserSystem.removeUser(username);
+            JOptionPane.showMessageDialog(null, "File error.");
+            return;
+        }
         //IF SUCCESFUL ADD DISPOSE();
         this.setVisible(false);
+        
+        nameInput.setText(null);
+        passwordInput.setText(null);
+        passwordValidationInput.setText(null);
+        registerButton.setText(null);
+        surnameInput.setText(null);
+        usernameInput.setText(null);
+        emailInput.setText(null);
+        
+        
+
     }//GEN-LAST:event_registerButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

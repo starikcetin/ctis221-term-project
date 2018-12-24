@@ -10,11 +10,20 @@ import java.util.Scanner;
 public class UserSystem {
 
     private static final String SAVE_FILE_NAME = "usersinfo.txt";
+    private static User loggedInUser;
 
+    public static User getLoggedInUser() {
+        return loggedInUser;
+    }
     private static ArrayList<User> users = new ArrayList<User>();
 
     // returns false if there is a username collision, 
     //true if added successfully
+    
+    public static void setLoggedInUser(User user){
+        loggedInUser=user;
+    }
+    
     public static boolean addUser(User newUser) {
         for (User it : users) {
             if (it.getUsername().compareTo(newUser.getUsername()) == 0) {
@@ -26,6 +35,7 @@ public class UserSystem {
         return true;
     }
 
+    
     // returns the user if found, otherwise null
     public static User findUser(String username) {
         for (User it : users) {

@@ -5,12 +5,15 @@
  */
 package UI;
 
+import Users.UserSystem;
+
 /**
  *
  * @author bersl
  */
 public class InventoryScreen extends javax.swing.JFrame {
 
+    
     public InventoryScreen() {
         initComponents();
     }
@@ -30,10 +33,15 @@ public class InventoryScreen extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         usernameOutput = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        itemTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Inventory");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         storeButton.setText("STORE");
         storeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -50,9 +58,8 @@ public class InventoryScreen extends javax.swing.JFrame {
 
         usernameOutput.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         usernameOutput.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        usernameOutput.setText("NAME SURNAME");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        itemTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -81,12 +88,12 @@ public class InventoryScreen extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        itemTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                itemTableMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(itemTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,18 +139,23 @@ public class InventoryScreen extends javax.swing.JFrame {
 
     }//GEN-LAST:event_storeButtonActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void itemTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemTableMouseClicked
         WindowManager.productInfoScreen.setVisible(true);
-    }//GEN-LAST:event_jTable1MouseClicked
+    }//GEN-LAST:event_itemTableMouseClicked
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+               usernameOutput.setText(UserSystem.getLoggedInUser().getName().toUpperCase()+" "+UserSystem.getLoggedInUser().getSurname().toUpperCase());
+
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable itemTable;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchInput;
     private javax.swing.JButton storeButton;

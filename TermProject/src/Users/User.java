@@ -76,7 +76,7 @@ public class User implements Serializable {
         this.password = password;
     }
      
-    public boolean isIsAdmin() {
+    public boolean isAdmin() {
         return isAdmin;
     }
 

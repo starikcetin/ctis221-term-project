@@ -1,9 +1,42 @@
 package UI;
 
+import Users.User;
+import Users.UserSystem;
+import java.awt.event.KeyEvent;
+import java.io.FileNotFoundException;
+import javax.swing.JOptionPane;
+
 public class WelcomeScreen extends javax.swing.JFrame {
 
     public WelcomeScreen() {
         initComponents();
+        try {
+            UserSystem.readAllFromFile();
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "File error.");
+
+        }
+    }
+
+    public void login() {
+        String username = usernameInput.getText();
+        String password = String.valueOf(passwordInput.getPassword());
+
+        User found = UserSystem.findUser(username);
+
+        if (found == null) {
+            JOptionPane.showMessageDialog(null, "Username or password wrong");
+
+        } else if (String.valueOf(found.getPassword()).compareTo(password) == 0) {
+            UserSystem.setLoggedInUser(found);
+            WindowManager.inventoryScreen.setVisible(true);
+            this.setVisible(false);
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Username or password wrong");
+        }
+        // check if login is succesful and if yes add dispose();
+
     }
 
     /**
@@ -39,6 +72,11 @@ public class WelcomeScreen extends javax.swing.JFrame {
                 loginButtonActionPerformed(evt);
             }
         });
+        loginButton.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                loginButtonKeyPressed(evt);
+            }
+        });
 
         jLabel1.setText("USERNAME");
 
@@ -47,6 +85,12 @@ public class WelcomeScreen extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("WELCOME TO STORE");
+
+        passwordInput.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwordInputKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,19 +153,28 @@ public class WelcomeScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        String username = usernameInput.getText();
-        char[] password = passwordInput.getPassword();
+        login();
 
-        WindowManager.inventoryScreen.setVisible(true);
-        this.setVisible(false);
-        // check if login is succesful and if yes add dispose();
+
     }//GEN-LAST:event_loginButtonActionPerformed
+
+    private void loginButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_loginButtonKeyPressed
+
+
+    }//GEN-LAST:event_loginButtonKeyPressed
+
+    private void passwordInputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordInputKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            login();
+            System.out.println("enter");
+        }
+    }//GEN-LAST:event_passwordInputKeyPressed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+        * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
