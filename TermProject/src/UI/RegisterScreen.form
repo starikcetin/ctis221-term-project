@@ -35,8 +35,8 @@
               </Group>
               <EmptySpace type="separate" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="passwordInput1" linkSize="2" alignment="0" max="32767" attributes="0"/>
-                  <Component id="passwordInput2" linkSize="2" alignment="0" max="32767" attributes="0"/>
+                  <Component id="passwordInput" linkSize="2" alignment="0" max="32767" attributes="0"/>
+                  <Component id="passwordValidationInput" linkSize="2" alignment="0" max="32767" attributes="0"/>
                   <Component id="nameInput" linkSize="2" min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="emailInput" linkSize="2" max="32767" attributes="0"/>
                   <Component id="surnameInput" linkSize="2" max="32767" attributes="0"/>
@@ -84,12 +84,12 @@
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="passwordInput1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="passwordInput" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="passwordInput2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="passwordValidationInput" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="25" max="32767" attributes="0"/>
               <Component id="registerButton" min="-2" max="-2" attributes="0"/>
@@ -154,9 +154,9 @@
         <Property name="text" type="java.lang.String" value="PLEASE FILL THE FORM"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="passwordInput1">
+    <Component class="javax.swing.JPasswordField" name="passwordInput">
     </Component>
-    <Component class="javax.swing.JPasswordField" name="passwordInput2">
+    <Component class="javax.swing.JPasswordField" name="passwordValidationInput">
     </Component>
   </SubComponents>
 </Form>

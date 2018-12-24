@@ -1,5 +1,9 @@
 package UI;
 
+import Users.User;
+import Users.UserSystem;
+import javax.swing.JOptionPane;
+
 public class RegisterScreen extends javax.swing.JFrame {
 
     public RegisterScreen() {
@@ -30,8 +34,8 @@ public class RegisterScreen extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         registerButton = new javax.swing.JButton();
         titleLabel = new javax.swing.JLabel();
-        passwordInput1 = new javax.swing.JPasswordField();
-        passwordInput2 = new javax.swing.JPasswordField();
+        passwordInput = new javax.swing.JPasswordField();
+        passwordValidationInput = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,8 +77,8 @@ public class RegisterScreen extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(passwordInput1)
-                    .addComponent(passwordInput2)
+                    .addComponent(passwordInput)
+                    .addComponent(passwordValidationInput)
                     .addComponent(nameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emailInput)
                     .addComponent(surnameInput)
@@ -92,7 +96,7 @@ public class RegisterScreen extends javax.swing.JFrame {
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6});
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {emailInput, nameInput, passwordInput1, passwordInput2, surnameInput, usernameInput});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {emailInput, nameInput, passwordInput, passwordValidationInput, surnameInput, usernameInput});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,11 +122,11 @@ public class RegisterScreen extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(passwordInput1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passwordInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(passwordInput2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passwordValidationInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(registerButton)
                 .addGap(25, 25, 25))
@@ -132,6 +136,45 @@ public class RegisterScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
+        String name = nameInput.getText();
+        String surname = surnameInput.getText();
+        String username = usernameInput.getText();
+        String email = emailInput.getText();
+        char[] password = passwordInput.getPassword();
+        char[] passwordValidate = passwordValidationInput.getPassword();
+
+        if (name.isEmpty() 
+                || surname.isEmpty() 
+                || username.isEmpty() 
+                || email.isEmpty() 
+                || password.length == 0 
+                || passwordValidate.length == 0) {
+            JOptionPane.showMessageDialog(null, "Please fill in all the fields.");
+            return;
+        }
+        
+        // check passwords
+        if (password.length != passwordValidate.length) {
+            JOptionPane.showMessageDialog(null, "Passwords don't match!");
+            return;
+        }
+
+        for (int i = 0; i < password.length; i++) {
+            if (password[i] != passwordValidate[i]) {
+                JOptionPane.showMessageDialog(null, "Passwords don't match!");
+                return;
+            }
+        }
+
+        User newUser = new User(name, surname, email, username, password, false);
+        boolean successful = UserSystem.addUser(newUser);
+
+        if (!successful) {
+            JOptionPane.showMessageDialog(null, "Username already exists!");
+            return;
+        }
+        
+        JOptionPane.showMessageDialog(null, "Registration successful.");
         //IF SUCCESFUL ADD DISPOSE();
         this.setVisible(false);
     }//GEN-LAST:event_registerButtonActionPerformed
@@ -145,8 +188,8 @@ public class RegisterScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField nameInput;
-    private javax.swing.JPasswordField passwordInput1;
-    private javax.swing.JPasswordField passwordInput2;
+    private javax.swing.JPasswordField passwordInput;
+    private javax.swing.JPasswordField passwordValidationInput;
     private javax.swing.JButton registerButton;
     private javax.swing.JTextField surnameInput;
     private javax.swing.JLabel titleLabel;

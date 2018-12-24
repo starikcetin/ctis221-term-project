@@ -63,7 +63,7 @@ public class UserSystem {
                 String password = sc.next();
                 Boolean isAdmin = sc.nextBoolean();
                 
-                User readUser = new User(name, surname, email, username, password, isAdmin);
+                User readUser = new User(name, surname, email, username, password.toCharArray(), isAdmin);
                 users.add(readUser);
             }
         }

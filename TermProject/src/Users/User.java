@@ -8,10 +8,10 @@ public class User implements Serializable {
     private String surname;
     private String email;
     private String username;
-    private String password;
+    private char[] password;
     private boolean isAdmin;
 
-    public User(String name, String surname, String email, String username, String password, boolean isAdmin) {
+    public User(String name, String surname, String email, String username, char[] password, boolean isAdmin) {
         this.name = name;
         this.surname = surname;
         this.email = email;
@@ -33,7 +33,7 @@ public class User implements Serializable {
     }
 
     public String toStringForFile() {
-        return name + " " + surname + " " + email + " " + username + " " + password + " " + isAdmin;
+        return name + " " + surname + " " + email + " " + username + " " + String.valueOf(password) + " " + isAdmin;
     }
 
     public String getName() {
@@ -68,11 +68,19 @@ public class User implements Serializable {
         this.username = username;
     }
 
-    public String getPassword() {
+    public char[] getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(char[] password) {
         this.password = password;
+    }
+     
+    public boolean isIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
     }
 }
