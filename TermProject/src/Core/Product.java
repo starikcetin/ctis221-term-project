@@ -1,6 +1,8 @@
 package Core;
 
-public abstract class Product implements IProduct {
+import java.io.Serializable;
+
+public abstract class Product implements IProduct, Serializable {
 
     private static int productIdCounter = -1;
 

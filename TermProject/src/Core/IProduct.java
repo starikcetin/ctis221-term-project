@@ -1,6 +1,8 @@
 package Core;
 
-public interface IProduct {
+import java.io.Serializable;
+
+public interface IProduct extends Serializable {
 
     public int getProductId();
 

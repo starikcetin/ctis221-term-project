@@ -1,9 +1,19 @@
 package Core;
 
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class ProductSystem {
 
+    private static final String SAVE_FILE_NAME = "productsinfo.txt";
+    
     private static ArrayList<IProduct> products = new ArrayList<>();
 
     public static boolean addProduct(IProduct product) {
@@ -51,5 +61,17 @@ public class ProductSystem {
 
     public static ArrayList<IProduct> getAllProducts() {
         return products;
+    }
+    
+    public static void saveAllToFile() throws FileNotFoundException, IOException
+    {
+        ObjectOutputStream dos = new ObjectOutputStream(new FileOutputStream(new File(SAVE_FILE_NAME)));
+        dos.writeObject(products);
+    }
+    
+    public static void readAllFromFile() throws IOException, ClassNotFoundException
+    {
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(SAVE_FILE_NAME)));
+        products = (ArrayList<IProduct>)ois.readObject();
     }
 }

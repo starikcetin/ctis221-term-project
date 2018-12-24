@@ -1,5 +1,4 @@
 package Core;
 
-public class DigitalProduct extends Product {
-    
+public abstract class DigitalProduct extends Product {
 }

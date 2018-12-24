@@ -1,5 +1,4 @@
 package Core;
 
-public class PhysicalProduct extends Product {
-    
+public abstract class PhysicalProduct extends Product {
 }

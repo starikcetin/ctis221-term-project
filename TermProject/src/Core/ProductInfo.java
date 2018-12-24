@@ -1,6 +1,8 @@
 package Core;
 
-public abstract class ProductInfo {
+import java.io.Serializable;
+
+public abstract class ProductInfo implements Serializable {
 
     protected int releaseDate;
     protected double price;
