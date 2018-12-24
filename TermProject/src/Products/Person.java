@@ -1,4 +1,4 @@
-package Core;
+package Products;
 
 public class Person {
 

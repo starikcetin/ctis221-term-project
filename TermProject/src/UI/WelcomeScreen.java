@@ -1,6 +1,6 @@
 package UI;
 
-import Core.ProductSystem;
+import Products.ProductSystem;
 import Users.User;
 import Users.UserSystem;
 import java.awt.event.KeyEvent;

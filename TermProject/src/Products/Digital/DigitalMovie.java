@@ -1,6 +1,6 @@
 package Products.Digital;
 
-import Core.DigitalProduct;
+import Products.DigitalProduct;
 import ProductInfos.MovieInfo;
 
 public class DigitalMovie extends DigitalProduct {

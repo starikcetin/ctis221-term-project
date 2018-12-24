@@ -1,4 +1,4 @@
-package Core;
+package Products;
 
 import java.io.DataOutputStream;
 import java.io.File;

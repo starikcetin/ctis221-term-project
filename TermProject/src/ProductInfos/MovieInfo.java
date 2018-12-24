@@ -1,7 +1,7 @@
 package ProductInfos;
 
-import Core.ProductInfo;
-import Core.Person;
+import Products.ProductInfo;
+import Products.Person;
 import java.util.ArrayList;
 
 public class MovieInfo extends ProductInfo {

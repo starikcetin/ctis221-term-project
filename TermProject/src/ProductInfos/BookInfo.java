@@ -1,7 +1,7 @@
 package ProductInfos;
 
-import Core.ProductInfo;
-import Core.Person;
+import Products.ProductInfo;
+import Products.Person;
 
 public class BookInfo extends ProductInfo {
 
