@@ -3,16 +3,17 @@ package UI;
 import Users.UserSystem;
 
 public class StoreScreen extends javax.swing.JFrame {
-    
+
     public StoreScreen() {
-        
+
         initComponents();
         addProductButton.setVisible(false);
-        if(UserSystem.getLoggedInUser().isAdmin()==true)
+        if (UserSystem.getLoggedInUser().isAdmin() == true) {
             addProductButton.setVisible(true);
-        
+        }
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -167,25 +168,26 @@ public class StoreScreen extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(productType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchButton)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(digitalMedium)
-                    .addComponent(phsyicalMedium)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(usernameOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(productType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchButton)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel2)
+                        .addComponent(digitalMedium)
+                        .addComponent(phsyicalMedium)
+                        .addComponent(jLabel3)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(buyButton)
                         .addComponent(addProductButton)
-                        .addComponent(inventoryButton)))
+                        .addComponent(inventoryButton))
+                    .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
@@ -193,22 +195,23 @@ public class StoreScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void itemTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemTableMouseClicked
-        
-        WindowManager.productInfoScreen.setVisible(true);
+        if (evt.getClickCount() == 2) {
+            WindowManager.ProductInfo.setVisible(true);
+        }
 
     }//GEN-LAST:event_itemTableMouseClicked
 
     private void inventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryButtonActionPerformed
-        WindowManager.inventoryScreen.setVisible(true);
+        WindowManager.Inventory.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_inventoryButtonActionPerformed
 
     private void addProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProductButtonActionPerformed
-        WindowManager.productInfoScreen.setVisible(true);
+        WindowManager.ProductInfo.setVisible(true);
     }//GEN-LAST:event_addProductButtonActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-       usernameOutput.setText(UserSystem.getLoggedInUser().getName().toUpperCase()+" "+UserSystem.getLoggedInUser().getSurname().toUpperCase());
+        usernameOutput.setText(UserSystem.getLoggedInUser().getName().toUpperCase() + " " + UserSystem.getLoggedInUser().getSurname().toUpperCase());
     }//GEN-LAST:event_formWindowActivated
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

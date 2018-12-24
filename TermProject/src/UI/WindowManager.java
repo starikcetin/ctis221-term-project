@@ -1,9 +1,9 @@
 package UI;
 
 public class WindowManager {
-    public static final InventoryScreen inventoryScreen = new InventoryScreen();
-    public static final ProductInfoScreen productInfoScreen = new ProductInfoScreen();
-    public static final RegisterScreen registerScreen = new RegisterScreen();
-    public static final StoreScreen storeScreen = new StoreScreen();
-    public static final WelcomeScreen welcomeScreen = new WelcomeScreen();
+    public static final InventoryScreen Inventory = new InventoryScreen();
+    public static final ProductInfoScreen ProductInfo = new ProductInfoScreen();
+    public static final RegisterScreen Register = new RegisterScreen();
+    public static final StoreScreen Store = new StoreScreen();
+    public static final WelcomeScreen Welcome = new WelcomeScreen();
 }

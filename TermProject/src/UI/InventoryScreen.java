@@ -5,7 +5,15 @@
  */
 package UI;
 
+import Products.IProduct;
+import Products.ProductInfo;
+import Products.ProductSystem;
 import Users.UserSystem;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,9 +21,33 @@ import Users.UserSystem;
  */
 public class InventoryScreen extends javax.swing.JFrame {
 
-    
+    private Map<Integer, Integer> tableIndexToProductIdMap = new HashMap<>();
+
     public InventoryScreen() {
         initComponents();
+    }
+
+    private void fillTheForm() {
+        itemTable.removeAll();
+        ArrayList<IProduct> allProducts = ProductSystem.getAllProducts();
+
+        for (int i = 0; i < allProducts.size(); i++) {
+            IProduct it = allProducts.get(i);
+
+            tableIndexToProductIdMap.put(i, it.getProductId());
+            ((DefaultTableModel) itemTable.getModel()).addRow(convertProductToRowItem(it));
+        }
+    }
+
+    private String[] convertProductToRowItem(IProduct product) {
+        ProductInfo pi = product.getProductInfo();
+        return new String[]{pi.getProductName(),
+            pi.getGenre(),
+            pi.getLanguage(),
+            pi.getPublisher(),
+            Integer.toString(pi.getReleaseDate()),
+            Double.toString(pi.getPrice())
+        };
     }
 
     /**
@@ -134,18 +166,40 @@ public class InventoryScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void storeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeButtonActionPerformed
-        WindowManager.storeScreen.setVisible(true);
+        WindowManager.Store.setVisible(true);
         this.setVisible(false);
-
     }//GEN-LAST:event_storeButtonActionPerformed
 
     private void itemTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemTableMouseClicked
-        WindowManager.productInfoScreen.setVisible(true);
+        if (evt.getClickCount() == 2) {
+            int selectedIndex = itemTable.getSelectedRow();
+
+            if (selectedIndex == -1) {
+                JOptionPane.showMessageDialog(null, "Nothing is selected.");
+                return;
+            }
+
+            Integer selectedId = tableIndexToProductIdMap.get(selectedIndex);
+
+            if (selectedId == null) {
+                JOptionPane.showMessageDialog(null, "Cannot find the product associated with the selected row.");
+                return;
+            }
+
+            IProduct selectedProduct = ProductSystem.searchProduct(selectedId);
+
+            if (selectedProduct == null) {
+                JOptionPane.showMessageDialog(null, "Product is null.");
+                return;
+            }
+
+            WindowManager.ProductInfo.setVisible(true);
+        }
     }//GEN-LAST:event_itemTableMouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-               usernameOutput.setText(UserSystem.getLoggedInUser().getName().toUpperCase()+" "+UserSystem.getLoggedInUser().getSurname().toUpperCase());
-
+        usernameOutput.setText(UserSystem.getLoggedInUser().getName().toUpperCase() + " " + UserSystem.getLoggedInUser().getSurname().toUpperCase());
+        fillTheForm();
     }//GEN-LAST:event_formWindowActivated
 
     /**

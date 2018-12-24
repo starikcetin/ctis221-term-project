@@ -2,6 +2,7 @@ package Products.Digital;
 
 import Products.DigitalProduct;
 import Products.Infos.MovieInfo;
+import Products.ProductInfo;
 
 public class DigitalMovie extends DigitalProduct {
 
@@ -9,5 +10,10 @@ public class DigitalMovie extends DigitalProduct {
 
     public DigitalMovie(MovieInfo movieInfo) {
         this.movieInfo = movieInfo;
+    }
+    
+    @Override
+    public ProductInfo getProductInfo() {
+        return movieInfo;
     }
 }

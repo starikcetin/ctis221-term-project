@@ -31,18 +31,14 @@ public class WelcomeScreen extends javax.swing.JFrame {
         User found = UserSystem.findUser(username);
 
         if (found == null) {
-            JOptionPane.showMessageDialog(null, "Username or password wrong");
-
-        } else if (String.valueOf(found.getPassword()).compareTo(password) == 0) {
-            UserSystem.setLoggedInUser(found);
-            WindowManager.inventoryScreen.setVisible(true);
-            this.setVisible(false);
-            
+            JOptionPane.showMessageDialog(null, "User not found.");
+        } else if (String.valueOf(found.getPassword()).compareTo(password) != 0) {
+            JOptionPane.showMessageDialog(null, "Password is wrong.");
         } else {
-            JOptionPane.showMessageDialog(null, "Username or password wrong");
+            UserSystem.setLoggedInUser(found);
+            WindowManager.Inventory.setVisible(true);
+            this.setVisible(false);
         }
-        // check if login is succesful and if yes add dispose();
-
     }
 
     /**
@@ -64,11 +60,6 @@ public class WelcomeScreen extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Welcome to Store");
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
-        });
 
         registerButton.setText("REGISTER");
         registerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -81,11 +72,6 @@ public class WelcomeScreen extends javax.swing.JFrame {
         loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginButtonActionPerformed(evt);
-            }
-        });
-        loginButton.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                loginButtonKeyPressed(evt);
             }
         });
 
@@ -160,19 +146,8 @@ public class WelcomeScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        WindowManager.registerScreen.setVisible(true);
+        WindowManager.Register.setVisible(true);
     }//GEN-LAST:event_registerButtonActionPerformed
-
-    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        login();
-
-
-    }//GEN-LAST:event_loginButtonActionPerformed
-
-    private void loginButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_loginButtonKeyPressed
-
-
-    }//GEN-LAST:event_loginButtonKeyPressed
 
     private void passwordInputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordInputKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -181,9 +156,9 @@ public class WelcomeScreen extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_passwordInputKeyPressed
 
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        // TODO add your handling code here:
-    }//GEN-LAST:event_formWindowActivated
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        login();
+    }//GEN-LAST:event_loginButtonActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
