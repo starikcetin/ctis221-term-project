@@ -29,12 +29,12 @@ public class InventoryScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         searchInput = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         usernameOutput = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Inventory");
@@ -46,20 +46,40 @@ public class InventoryScreen extends javax.swing.JFrame {
             }
         });
 
+        searchInput.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        searchButton.setText("SEARCH 🔎");
+
+        jLabel3.setText("WELCOME");
+
+        usernameOutput.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        usernameOutput.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        usernameOutput.setText("NAME SURNAME");
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "1", "1", null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Product Name", "Genre", "Language", "Publisher", "Release Date", "Price"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -72,34 +92,24 @@ public class InventoryScreen extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        searchInput.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-
-        searchButton.setText("SEARCH 🔎");
-
-        jLabel3.setText("WELCOME");
-
-        usernameOutput.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
-        usernameOutput.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        usernameOutput.setText("NAME SURNAME");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(searchInput, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25)
-                        .addComponent(searchButton)
-                        .addGap(25, 25, 25)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 296, Short.MAX_VALUE)
+                        .addComponent(searchInput, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(usernameOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1120, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(usernameOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
@@ -112,8 +122,8 @@ public class InventoryScreen extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(usernameOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -127,8 +137,8 @@ public class InventoryScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+
         p.setVisible(true);
-        
 
     }//GEN-LAST:event_jTable1MouseClicked
     
