@@ -19,7 +19,6 @@ public class StoreScreen extends javax.swing.JFrame {
 
         productType = new javax.swing.JComboBox<>();
         buyButton = new javax.swing.JButton();
-        returnItemButton = new javax.swing.JButton();
         searchInput = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -31,12 +30,12 @@ public class StoreScreen extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         usernameOutput = new javax.swing.JLabel();
         output = new javax.swing.JLabel();
+        addProductButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         buyButton.setText("BUY");
-
-        returnItemButton.setText("RETURN ITEM");
 
         searchInput.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
@@ -84,6 +83,10 @@ public class StoreScreen extends javax.swing.JFrame {
 
         output.setText("output panel");
 
+        addProductButton.setText("ADD PRODUCT");
+
+        jButton1.setText("INVENTORY");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -94,8 +97,10 @@ public class StoreScreen extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(returnItemButton)
-                        .addGap(365, 365, 365)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(addProductButton)
+                        .addGap(18, 18, 18)
                         .addComponent(buyButton))
                     .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -119,7 +124,7 @@ public class StoreScreen extends javax.swing.JFrame {
                 .addGap(0, 25, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {buyButton, returnItemButton, searchButton, searchInput});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addProductButton, buyButton, jButton1, searchButton, searchInput});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,17 +142,14 @@ public class StoreScreen extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addGap(25, 25, 25)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                        .addComponent(returnItemButton)
-                        .addGap(25, 25, 25))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(buyButton)
-                            .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buyButton)
+                        .addComponent(addProductButton)
+                        .addComponent(jButton1))
+                    .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
@@ -160,8 +162,10 @@ public class StoreScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable1MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addProductButton;
     private javax.swing.JButton buyButton;
     private javax.swing.JRadioButton digitalMedium;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -170,7 +174,6 @@ public class StoreScreen extends javax.swing.JFrame {
     private javax.swing.JLabel output;
     private javax.swing.JRadioButton phsyicalMedium;
     private javax.swing.JComboBox<String> productType;
-    private javax.swing.JButton returnItemButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchInput;
     private javax.swing.JLabel usernameOutput;
