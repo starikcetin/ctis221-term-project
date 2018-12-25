@@ -2,10 +2,11 @@ package Products.Physical;
 
 import Products.PhysicalProduct;
 import Products.Infos.MovieInfo;
+import Products.Interfaces.IMovie;
 import Products.ProductInfo;
 import Products.ProductType;
 
-public class PhysicalMovie extends PhysicalProduct {
+public class PhysicalMovie extends PhysicalProduct implements IMovie {
 
     private MovieInfo movieInfo;
 

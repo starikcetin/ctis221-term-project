@@ -2,10 +2,11 @@ package Products.Digital;
 
 import Products.DigitalProduct;
 import Products.Infos.MusicInfo;
+import Products.Interfaces.IMusic;
 import Products.ProductInfo;
 import Products.ProductType;
 
-public class DigitalMusic extends DigitalProduct {
+public class DigitalMusic extends DigitalProduct implements IMusic {
 
     private MusicInfo musicInfo;
 

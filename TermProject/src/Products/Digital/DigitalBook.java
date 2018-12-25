@@ -2,10 +2,11 @@ package Products.Digital;
 
 import Products.DigitalProduct;
 import Products.Infos.BookInfo;
+import Products.Interfaces.IBook;
 import Products.ProductInfo;
 import Products.ProductType;
 
-public class DigitalBook extends DigitalProduct {
+public class DigitalBook extends DigitalProduct implements IBook {
 
     private BookInfo bookInfo;
 

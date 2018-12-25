@@ -12,10 +12,10 @@ public class MovieInfo extends ProductInfo {
     private Person director;
     private String country;
     private ArrayList<Person> starring;
-    private int length;
+    private String length;
     private double boxOffice;
 
-    public MovieInfo(String producer, Person director, String country, ArrayList<Person> starring, int length, double boxOffice, String releaseDate, double price, String productName, String publisher, String genre, String language) {
+    public MovieInfo(String producer, Person director, String country, ArrayList<Person> starring, String length, double boxOffice, String releaseDate, double price, String productName, String publisher, String genre, String language) {
         super(releaseDate, price, productName, publisher, genre, language);
         this.producer = producer;
         this.director = director;
@@ -79,11 +79,11 @@ public class MovieInfo extends ProductInfo {
         this.starring = starring;
     }
 
-    public int getLength() {
+    public String getLength() {
         return length;
     }
 
-    public void setLength(int length) {
+    public void setLength(String length) {
         this.length = length;
     }
 

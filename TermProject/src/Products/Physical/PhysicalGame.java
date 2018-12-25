@@ -2,10 +2,11 @@ package Products.Physical;
 
 import Products.PhysicalProduct;
 import Products.Infos.GameInfo;
+import Products.Interfaces.IGame;
 import Products.ProductInfo;
 import Products.ProductType;
 
-public class PhysicalGame extends PhysicalProduct {
+public class PhysicalGame extends PhysicalProduct implements IGame {
 
     private GameInfo gameInfo;
 

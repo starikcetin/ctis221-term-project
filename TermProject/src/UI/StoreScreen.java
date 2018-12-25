@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class StoreScreen extends javax.swing.JFrame {
@@ -22,19 +23,6 @@ public class StoreScreen extends javax.swing.JFrame {
 
         // product type combobox fill
         productType.setModel(new DefaultComboBoxModel(ProductType.values()));
-    }
-
-    private void fillTheTable() {
-        itemTable.removeAll();
-        ArrayList<IProduct> allProducts = ProductSystem.getAllProducts();
-
-        DefaultTableModel dtm = (DefaultTableModel) itemTable.getModel();
-
-        for (int i = 0; i < allProducts.size(); i++) {
-            IProduct it = allProducts.get(i);
-            tableIndexToProductIdMap.put(i, it.getProductId());
-            dtm.addRow(UiUtils.convertProductToRowItem(it));
-        }
     }
 
     private void fillTheTable(MediumType medium, ProductType type) {
@@ -68,8 +56,28 @@ public class StoreScreen extends javax.swing.JFrame {
     }
 
     private IProduct getSelectedProduct() {
-        int selectedProductId = tableIndexToProductIdMap.get(itemTable.getSelectedRow());
-        return ProductSystem.searchProduct(selectedProductId);
+        int selectedIndex = itemTable.getSelectedRow();
+
+        if (selectedIndex == -1) {
+            JOptionPane.showMessageDialog(null, "Nothing is selected.");
+            return null;
+        }
+
+        Integer selectedId = tableIndexToProductIdMap.get(selectedIndex);
+
+        if (selectedId == null) {
+            JOptionPane.showMessageDialog(null, "Cannot find the product associated with the selected row.");
+            return null;
+        }
+
+        IProduct selectedProduct = ProductSystem.searchProduct(selectedId);
+
+        if (selectedProduct == null) {
+            JOptionPane.showMessageDialog(null, "Product is null.");
+            return null;
+        }
+
+        return selectedProduct;
     }
 
     /**
@@ -274,7 +282,7 @@ public class StoreScreen extends javax.swing.JFrame {
 
         if (product != null) {
             if (evt.getClickCount() == 2) {
-                WindowManager.ProductInfo.fillWith(product);
+                WindowManager.ProductInfo.setUpForViewOrEdit(product, UserSystem.getLoggedInUser().isAdmin());
                 WindowManager.ProductInfo.setVisible(true);
             }
         }

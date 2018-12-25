@@ -2,10 +2,11 @@ package Products.Digital;
 
 import Products.DigitalProduct;
 import Products.Infos.MovieInfo;
+import Products.Interfaces.IMovie;
 import Products.ProductInfo;
 import Products.ProductType;
 
-public class DigitalMovie extends DigitalProduct {
+public class DigitalMovie extends DigitalProduct implements IMovie {
 
     private MovieInfo movieInfo;
 
