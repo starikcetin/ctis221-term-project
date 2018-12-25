@@ -22,12 +22,17 @@ import javax.swing.table.DefaultTableModel;
 public class InventoryScreen extends javax.swing.JFrame {
 
     private Map<Integer, Integer> tableIndexToProductIdMap = new HashMap<>();
+
     public InventoryScreen() {
         initComponents();
     }
 
-    private void filltheTable() {
-        itemTable.removeAll();
+    private void fillTheTable() {
+        //itemTable.removeAll();
+
+        DefaultTableModel model = (DefaultTableModel) itemTable.getModel();
+        model.setRowCount(0);
+
         ArrayList<IProduct> allProducts = ProductSystem.getAllProducts();
 
         DefaultTableModel dtm = (DefaultTableModel) itemTable.getModel();
@@ -188,7 +193,7 @@ public class InventoryScreen extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         usernameOutput.setText(UserSystem.getLoggedInUser().getName().toUpperCase() + " " + UserSystem.getLoggedInUser().getSurname().toUpperCase());
-        filltheTable();
+        fillTheTable();
     }//GEN-LAST:event_formWindowActivated
 
     /**

@@ -26,7 +26,11 @@ public class StoreScreen extends javax.swing.JFrame {
     }
 
     private void fillTheTable(MediumType medium, ProductType type) {
-        itemTable.removeAll();
+        //itemTable.removeAll();
+
+        DefaultTableModel model = (DefaultTableModel) itemTable.getModel();
+        model.setRowCount(0);
+
         ArrayList<IProduct> allProducts = ProductSystem.getAllProducts(medium, type);
 
         DefaultTableModel dtm = (DefaultTableModel) itemTable.getModel();
