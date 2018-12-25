@@ -304,9 +304,7 @@ public class StoreScreen extends javax.swing.JFrame {
             addProductButton.setVisible(true);
         }
 
-        usernameOutput.setText(UserSystem.getLoggedInUser().getName()
-                + " "
-                + UserSystem.getLoggedInUser().getSurname());
+        usernameOutput.setText(UserSystem.getLoggedInUser().getName().toUpperCase() + " " + UserSystem.getLoggedInUser().getSurname().toUpperCase());
 
         refreshTableWithFilters();
     }//GEN-LAST:event_formWindowActivated
