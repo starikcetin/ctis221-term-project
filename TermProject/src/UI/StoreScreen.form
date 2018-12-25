@@ -190,7 +190,7 @@
                   <Data value="null"/>
                 </Column>
                 <Column editable="false" title="Release Date" type="java.lang.String">
-                  <Data value="1"/>
+                  <Data value=""/>
                   <Data value="null"/>
                   <Data value="null"/>
                   <Data value="null"/>
