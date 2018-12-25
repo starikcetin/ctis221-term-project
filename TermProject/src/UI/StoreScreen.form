@@ -154,7 +154,7 @@
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="6" rowCount="7">
                 <Column editable="false" title="Product Name" type="java.lang.String">
-                  <Data value="1"/>
+                  <Data value=""/>
                   <Data value="null"/>
                   <Data value="null"/>
                   <Data value="null"/>
@@ -163,7 +163,7 @@
                   <Data value="null"/>
                 </Column>
                 <Column editable="false" title="Genre" type="java.lang.String">
-                  <Data value="1"/>
+                  <Data value=""/>
                   <Data value="null"/>
                   <Data value="null"/>
                   <Data value="null"/>
@@ -172,7 +172,7 @@
                   <Data value="null"/>
                 </Column>
                 <Column editable="false" title="Language" type="java.lang.String">
-                  <Data value="1"/>
+                  <Data value=""/>
                   <Data value=""/>
                   <Data value="null"/>
                   <Data value="null"/>
@@ -181,7 +181,7 @@
                   <Data value="null"/>
                 </Column>
                 <Column editable="false" title="Publisher" type="java.lang.String">
-                  <Data value="1"/>
+                  <Data value=""/>
                   <Data value="null"/>
                   <Data value="null"/>
                   <Data value="null"/>

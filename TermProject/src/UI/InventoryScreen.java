@@ -22,7 +22,6 @@ import javax.swing.table.DefaultTableModel;
 public class InventoryScreen extends javax.swing.JFrame {
 
     private Map<Integer, Integer> tableIndexToProductIdMap = new HashMap<>();
-
     public InventoryScreen() {
         initComponents();
     }
@@ -83,7 +82,7 @@ public class InventoryScreen extends javax.swing.JFrame {
 
         itemTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "1", "1", "1", "1", null},
+                {"", "", "", "", "", null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},

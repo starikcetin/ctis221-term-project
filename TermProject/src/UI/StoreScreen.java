@@ -130,7 +130,7 @@ public class StoreScreen extends javax.swing.JFrame {
 
         itemTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "1", "1", "1", "1", null},
+                {"", "", "", "", "1", null},
                 {null, null, "", null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
