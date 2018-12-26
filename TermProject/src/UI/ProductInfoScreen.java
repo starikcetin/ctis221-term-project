@@ -677,7 +677,7 @@ public class ProductInfoScreen extends javax.swing.JFrame {
                         .addComponent(jLabel13)
                         .addGap(30, 30, 30)
                         .addComponent(movieProducerOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                         .addGroup(moviePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel17)
                             .addComponent(jLabel18))
@@ -749,15 +749,7 @@ public class ProductInfoScreen extends javax.swing.JFrame {
 
         jLabel21.setText("ALBUM");
 
-        musicArtistOutput.setEditable(false);
-
-        musicLengthOutput.setEditable(false);
-
-        musicAlbumOutput.setEditable(false);
-
-        jLabel22.setText("Producer");
-
-        musicProducerOutput.setEditable(false);
+        jLabel22.setText("PRODUCER");
 
         javax.swing.GroupLayout musicPanelLayout = new javax.swing.GroupLayout(musicPanel);
         musicPanel.setLayout(musicPanelLayout);

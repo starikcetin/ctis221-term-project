@@ -422,7 +422,7 @@
                               <Component id="jLabel13" linkSize="4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="movieProducerOutput" linkSize="7" min="-2" pref="100" max="-2" attributes="0"/>
-                              <EmptySpace pref="9" max="32767" attributes="0"/>
+                              <EmptySpace pref="20" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="jLabel17" linkSize="4" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel18" linkSize="4" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -657,29 +657,17 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="musicArtistOutput">
-              <Properties>
-                <Property name="editable" type="boolean" value="false"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="musicLengthOutput">
-              <Properties>
-                <Property name="editable" type="boolean" value="false"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="musicAlbumOutput">
-              <Properties>
-                <Property name="editable" type="boolean" value="false"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel22">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Producer"/>
+                <Property name="text" type="java.lang.String" value="PRODUCER"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="musicProducerOutput">
-              <Properties>
-                <Property name="editable" type="boolean" value="false"/>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>
