@@ -6,9 +6,12 @@ import Products.ProductSystem;
 import Products.ProductType;
 import Users.UserSystem;
 import Utils.UiUtils;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -310,10 +313,8 @@ public class StoreScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_addProductButtonActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        addProductButton.setVisible(false);
-        if (UserSystem.getLoggedInUser().isAdmin() == true) {
-            addProductButton.setVisible(true);
-        }
+        addProductButton.setVisible(UserSystem.getLoggedInUser().isAdmin());
+        removeProductButton.setVisible(UserSystem.getLoggedInUser().isAdmin());
 
         usernameOutput.setText(UserSystem.getLoggedInUser().getName().toUpperCase() + " " + UserSystem.getLoggedInUser().getSurname().toUpperCase());
 
@@ -333,7 +334,14 @@ public class StoreScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_digitalMediumActionPerformed
 
     private void removeProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeProductButtonActionPerformed
-        // remove from table and array
+        try {
+            IProduct selected = getSelectedProduct();
+            ProductSystem.deleteProduct(selected.getProductId());
+            this.refreshTableWithFilters();
+            ProductSystem.saveAllToFile();
+        } catch (IOException ex) {
+            Logger.getLogger(StoreScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_removeProductButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
