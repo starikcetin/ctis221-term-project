@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class ProductSystem {
 
-    private static final String SAVE_FILE_NAME = "productsinfo.txt";
+    private static final String SAVE_FILE_NAME = "productsinfo.bin";
 
     private static ArrayList<IProduct> products = new ArrayList<>();
 
@@ -77,6 +77,7 @@ public class ProductSystem {
     public static void saveAllToFile() throws FileNotFoundException, IOException {
         ObjectOutputStream dos = new ObjectOutputStream(new FileOutputStream(new File(SAVE_FILE_NAME)));
         dos.writeObject(products);
+        dos.close();
     }
 
     public static void readAllFromFile() throws IOException, ClassNotFoundException {
@@ -87,5 +88,6 @@ public class ProductSystem {
 
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
         products = (ArrayList<IProduct>) ois.readObject();
+        ois.close();
     }
 }

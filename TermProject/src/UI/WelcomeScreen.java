@@ -6,21 +6,31 @@ import Users.UserSystem;
 import java.awt.event.KeyEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class WelcomeScreen extends javax.swing.JFrame {
 
     public WelcomeScreen() {
-        initComponents();
         try {
+            initComponents();
+//        try {
             UserSystem.readAllFromFile();
             ProductSystem.readAllFromFile();
+//        } catch (FileNotFoundException ex) {
+//            // file not exists shouldn't show any errors.
+//        } catch (IOException ex) {
+//            JOptionPane.showMessageDialog(null, "File error.");
+//        } catch (ClassNotFoundException ex) {
+//            JOptionPane.showMessageDialog(null, "Binary format error.");
+//        }
         } catch (FileNotFoundException ex) {
-            // file not exists shouldn't show any errors.
+            Logger.getLogger(WelcomeScreen.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "File error.");
+            Logger.getLogger(WelcomeScreen.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, "Binary format error.");
+            Logger.getLogger(WelcomeScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

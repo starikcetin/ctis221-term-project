@@ -22,8 +22,11 @@ import Products.Physical.PhysicalMusic;
 import Products.ProductInfo;
 import Products.ProductSystem;
 import Products.ProductType;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
@@ -62,7 +65,6 @@ public class ProductInfoScreen extends javax.swing.JFrame {
                 musicAlbumOutput,
                 musicArtistOutput,
                 musicLengthOutput,
-                
                 // this one is a textArea
                 movieStarringOutput
         ));
@@ -847,32 +849,40 @@ public class ProductInfoScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        IProduct newProduct = null;
+        try {
+            IProduct newProduct = null;
 
-        switch (currentProductType) {
-            case Book:
-                newProduct = createNewBook();
-                break;
+            switch (currentProductType) {
+                case Book:
+                    newProduct = createNewBook();
+                    break;
 
-            case Game:
-                newProduct = createNewGame();
-                break;
+                case Game:
+                    newProduct = createNewGame();
+                    break;
 
-            case Movie:
-                newProduct = createNewMovie();
-                break;
+                case Movie:
+                    newProduct = createNewMovie();
+                    break;
 
-            case Music:
-                newProduct = createNewMusic();
-                break;
+                case Music:
+                    newProduct = createNewMusic();
+                    break;
+            }
+
+            if (newProduct == null) {
+                JOptionPane.showMessageDialog(null, "Could not create the product.");
+                return;
+            }
+
+            ProductSystem.addProduct(newProduct);
+
+            ProductSystem.saveAllToFile();
+            JOptionPane.showMessageDialog(null, "Successfully added the product.");
+            this.dispose();
+        } catch (IOException ex) {
+            Logger.getLogger(ProductInfoScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        if (newProduct == null) {
-            JOptionPane.showMessageDialog(null, "Could not create the product.");
-            return;
-        }
-
-        ProductSystem.addProduct(newProduct);
     }//GEN-LAST:event_addButtonActionPerformed
 
 //<editor-fold defaultstate="collapsed" desc="Generated code: variables">
