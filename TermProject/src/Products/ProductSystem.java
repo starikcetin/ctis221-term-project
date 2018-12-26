@@ -89,5 +89,15 @@ public class ProductSystem {
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
         products = (ArrayList<IProduct>) ois.readObject();
         ois.close();
+
+        int maxId = -1;
+
+        for (IProduct it : products) {
+            if (it.getProductId() > maxId) {
+                maxId = it.getProductId();
+            }
+        }
+
+        Product.setInitialId(maxId);
     }
 }

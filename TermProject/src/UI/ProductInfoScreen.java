@@ -34,16 +34,16 @@ import javax.swing.JTextField;
 import javax.swing.text.JTextComponent;
 
 public class ProductInfoScreen extends javax.swing.JFrame {
-
+    
     private final ArrayList<JTextComponent> allInputs;
-
+    
     private IProduct currentProduct;
     private MediumType currentMediumType;
     private ProductType currentProductType;
-
+    
     public ProductInfoScreen() {
         initComponents();
-
+        
         this.allInputs = new ArrayList<>(Arrays.asList(
                 nameOutput,
                 relasedateOutput,
@@ -65,57 +65,58 @@ public class ProductInfoScreen extends javax.swing.JFrame {
                 musicAlbumOutput,
                 musicArtistOutput,
                 musicLengthOutput,
+                musicProducerOutput,
                 // this one is a textArea
                 movieStarringOutput
         ));
     }
-
+    
     public void setUpForViewOrEdit(IProduct product, boolean canEdit) {
         clear();
-
+        
         this.currentProduct = product;
         this.currentMediumType = product.getMediumType();
         this.currentProductType = product.getProductType();
-
+        
         fillGenericPanel(product.getProductInfo());
         fillSpecificPanel(product.getProductType(), product.getProductInfo());
         showSpecificPanel(product.getProductType());
-
+        
         setTitle(canEdit ? "Edit Product" : "View Product");
-
+        
         addButton.setVisible(false);
         updateButton.setVisible(canEdit);
-
+        
         for (JComponent it : allInputs) {
             it.setEnabled(canEdit);
         }
     }
-
+    
     public void setUpForAdd(MediumType mediumType, ProductType productType) {
         clear();
-
+        
         this.currentProduct = null;
         this.currentMediumType = mediumType;
         this.currentProductType = productType;
-
+        
         showSpecificPanel(productType);
-
+        
         setTitle("Add a new Product");
-
+        
         addButton.setVisible(true);
         updateButton.setVisible(false);
-
+        
         for (JComponent it : allInputs) {
             it.setEnabled(true);
         }
     }
-
+    
     private void clear() {
         for (JTextComponent it : allInputs) {
             it.setText("");
         }
     }
-
+    
     private void fillGenericPanel(ProductInfo info) {
         nameOutput.setText(info.getProductName());
         relasedateOutput.setText(info.getReleaseDate());
@@ -124,152 +125,152 @@ public class ProductInfoScreen extends javax.swing.JFrame {
         publisherOutput.setText(info.getPublisher());
         priceOutput.setText(Double.toString(info.getPrice()));
     }
-
+    
     private void fillSpecificPanel(ProductType productType, ProductInfo info) {
         switch (productType) {
             case Book:
                 fillSpecific((BookInfo) info);
                 break;
-
+                
             case Game:
                 fillSpecific((GameInfo) info);
                 break;
-
+                
             case Movie:
                 fillSpecific((MovieInfo) info);
                 break;
-
+                
             case Music:
                 fillSpecific((MusicInfo) info);
                 break;
         }
     }
-
+    
     private void showSpecificPanel(ProductType type) {
         bookPanel.setVisible(false);
         gamePanel.setVisible(false);
         moviePanel.setVisible(false);
         musicPanel.setVisible(false);
-
+        
         switch (type) {
             case Book:
                 bookPanel.setVisible(true);
                 break;
-
+                
             case Game:
                 gamePanel.setVisible(true);
                 break;
-
+                
             case Movie:
                 moviePanel.setVisible(true);
                 break;
-
+                
             case Music:
                 musicPanel.setVisible(true);
                 break;
         }
     }
-
+    
     private void fillSpecific(BookInfo info) {
         bookIsbnOutput.setText(Integer.toString(info.getIsbn()));
         bookAuthorOutput.setText(info.getAuthor().getFullName());
         bookPageCountOutput.setText(Integer.toString(info.getPageCount()));
     }
-
+    
     private void fillSpecific(GameInfo info) {
         gameDevOutput.setText(info.getDeveloper().getFullName());
         gameEngineOutput.setText(info.getEngine());
         gamePlatformsOutput.setText(info.getPlatforms());
     }
-
+    
     private void fillSpecific(MovieInfo info) {
         movieBoxOfficeOutput.setText(Double.toString(info.getBoxOffice()));
         movieCountryOutput.setText(info.getCountry());
         movieDirectorOutput.setText(info.getDirector().getFullName());
         movieLengthOutput.setText(info.getLength());
         movieProducerOutput.setText(info.getProducer());
-
+        
         ArrayList<Person> starring = info.getStarring();
-
+        
         movieStarringOutput.setText("");
-
+        
         for (Person it : starring) {
             movieStarringOutput.append(it.getFullName() + "\r\n");
         }
     }
-
+    
     private void fillSpecific(MusicInfo info) {
         musicAlbumOutput.setText(info.getAlbum());
         musicArtistOutput.setText(info.getArtist().getFullName());
         musicLengthOutput.setText(info.getLength());
     }
-
+    
     private IMusic createNewMusic() {
         MusicInfo info = collateMusicInfo();
-
+        
         switch (currentMediumType) {
             case Digital:
                 return new DigitalMusic(info);
-
+                
             case Physical:
                 return new PhysicalMusic(info);
         }
-
+        
         return null;
     }
-
+    
     private IMovie createNewMovie() {
         MovieInfo info = collateMovieInfo();
-
+        
         switch (currentMediumType) {
             case Digital:
                 return new DigitalMovie(info);
-
+                
             case Physical:
                 return new PhysicalMovie(info);
         }
-
+        
         return null;
     }
-
+    
     private IGame createNewGame() {
         GameInfo info = collateGameInfo();
-
+        
         switch (currentMediumType) {
             case Digital:
                 return new DigitalGame(info);
-
+                
             case Physical:
                 return new PhysicalGame(info);
         }
-
+        
         return null;
     }
-
+    
     private IBook createNewBook() {
         BookInfo info = collateBookInfo();
-
+        
         switch (currentMediumType) {
             case Digital:
                 return new DigitalBook(info);
-
+                
             case Physical:
                 return new PhysicalBook(info);
         }
-
+        
         return null;
     }
-
+    
     private MusicInfo collateMusicInfo() {
         // specific
         String album = musicAlbumOutput.getText();
-
+        
         String[] artistNames = musicArtistOutput.getText().split(" ");
         Person artist = new Person(artistNames[0], artistNames[1]);
-
+        
         String length = musicLengthOutput.getText();
         String producer = musicProducerOutput.getText();
-
+        
         // generic
         String releaseDate = relasedateOutput.getText();
         double price = Double.parseDouble(priceOutput.getText());
@@ -277,24 +278,24 @@ public class ProductInfoScreen extends javax.swing.JFrame {
         String publisher = publisherOutput.getText();
         String genre = genreOutput.getText();
         String language = languageOutput.getText();
-
+        
         return new MusicInfo(album, artist, length, producer,
                 releaseDate, price, productName, publisher, genre, language);
     }
-
+    
     private MovieInfo collateMovieInfo() {
         // String producer, Person director, String country, ArrayList<Person> starring, int length, double boxOffice,
-
+        
         // specific
         String producer = movieProducerOutput.getText();
-
+        
         String[] directorNames = movieDirectorOutput.getText().split(" ");
         Person director = new Person(directorNames[0], directorNames[1]);
-
+        
         String country = movieCountryOutput.getText();
         String length = movieLengthOutput.getText();
         double boxOffice = Double.parseDouble(movieBoxOfficeOutput.getText());
-
+        
         // generic
         String releaseDate = relasedateOutput.getText();
         double price = Double.parseDouble(priceOutput.getText());
@@ -302,26 +303,26 @@ public class ProductInfoScreen extends javax.swing.JFrame {
         String publisher = publisherOutput.getText();
         String genre = genreOutput.getText();
         String language = languageOutput.getText();
-
+        
         return new MovieInfo(producer, director, country, parseMovieStarring(), length, boxOffice,
                 releaseDate, price, productName, publisher, genre, language);
     }
-
+    
     private ArrayList<Person> parseMovieStarring() {
         ArrayList<Person> result = new ArrayList<>();
-
+        
         return result;
     }
-
+    
     private GameInfo collateGameInfo() {
         // specific
         String platforms = gamePlatformsOutput.getText();
-
+        
         String[] developerNames = gameDevOutput.getText().split(" ");
         Person developer = new Person(developerNames[0], developerNames[1]);
-
+        
         String engine = gameEngineOutput.getText();
-
+        
         // generic
         String releaseDate = relasedateOutput.getText();
         double price = Double.parseDouble(priceOutput.getText());
@@ -329,22 +330,22 @@ public class ProductInfoScreen extends javax.swing.JFrame {
         String publisher = publisherOutput.getText();
         String genre = genreOutput.getText();
         String language = languageOutput.getText();
-
+        
         return new GameInfo(platforms, engine, developer,
                 releaseDate, price, productName, publisher, genre, language);
     }
-
+    
     private BookInfo collateBookInfo() {
         // int pageCount, int isbn, Person author,
-
+        
         // specific
         int pageCount = Integer.parseInt(bookPageCountOutput.getText());
-
+        
         int isbn = Integer.parseInt(bookIsbnOutput.getText());
-
+        
         String[] authorNames = bookAuthorOutput.getText().split(" ");
         Person author = new Person(authorNames[0], authorNames[1]);
-
+        
         // generic
         String releaseDate = relasedateOutput.getText();
         double price = Double.parseDouble(priceOutput.getText());
@@ -352,11 +353,11 @@ public class ProductInfoScreen extends javax.swing.JFrame {
         String publisher = publisherOutput.getText();
         String genre = genreOutput.getText();
         String language = languageOutput.getText();
-
+        
         return new BookInfo(pageCount, isbn, author,
                 releaseDate, price, productName, publisher, genre, language);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -848,32 +849,32 @@ public class ProductInfoScreen extends javax.swing.JFrame {
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         try {
             IProduct newProduct = null;
-
+            
             switch (currentProductType) {
                 case Book:
                     newProduct = createNewBook();
                     break;
-
+                    
                 case Game:
                     newProduct = createNewGame();
                     break;
-
+                    
                 case Movie:
                     newProduct = createNewMovie();
                     break;
-
+                    
                 case Music:
                     newProduct = createNewMusic();
                     break;
             }
-
+            
             if (newProduct == null) {
                 JOptionPane.showMessageDialog(null, "Could not create the product.");
                 return;
             }
-
+            
             ProductSystem.addProduct(newProduct);
-
+            
             ProductSystem.saveAllToFile();
             JOptionPane.showMessageDialog(null, "Successfully added the product.");
             this.dispose();
@@ -885,34 +886,34 @@ public class ProductInfoScreen extends javax.swing.JFrame {
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         try {
             ProductInfo newProductInfo = null;
-
+            
             switch (currentProductType) {
                 case Book:
                     newProductInfo = collateBookInfo();
                     break;
-
+                    
                 case Game:
                     newProductInfo = collateGameInfo();
                     break;
-
+                    
                 case Movie:
                     newProductInfo = collateMovieInfo();
                     break;
-
+                    
                 case Music:
                     newProductInfo = collateMusicInfo();
                     break;
             }
-
+            
             this.currentProduct.setProductInfo(newProductInfo);
-
+            
             ProductSystem.saveAllToFile();
             JOptionPane.showMessageDialog(null, "Successfully edited the product.");
         } catch (IOException ex) {
             Logger.getLogger(ProductInfoScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_updateButtonActionPerformed
-
+    
 //<editor-fold defaultstate="collapsed" desc="Generated code: variables">
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;

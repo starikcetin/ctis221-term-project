@@ -12,6 +12,10 @@ public abstract class Product implements IProduct, Serializable {
         this.productId = nextProductId();
     }
 
+    public static void setInitialId(int productIdCounter) {
+        Product.productIdCounter = productIdCounter;
+    }
+
     private static int nextProductId() {
         return ++productIdCounter;
     }
