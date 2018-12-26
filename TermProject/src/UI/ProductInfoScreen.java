@@ -295,6 +295,11 @@ public class ProductInfoScreen extends javax.swing.JFrame {
         String length = movieLengthOutput.getText();
         double boxOffice = Double.parseDouble(movieBoxOfficeOutput.getText());
 
+        String movieStarringOutput.getText();
+        if (rootPaneCheckingEnabled) {
+            
+        }
+        
         // generic
         String releaseDate = relasedateOutput.getText();
         double price = Double.parseDouble(priceOutput.getText());

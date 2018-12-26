@@ -1,6 +1,8 @@
 package Users;
 
+import Products.IProduct;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class User implements Serializable {
 
@@ -10,6 +12,8 @@ public class User implements Serializable {
     private String username;
     private char[] password;
     private boolean isAdmin;
+
+    private ArrayList<IProduct> purchaseHistory = new ArrayList<>();
 
     public User(String name, String surname, String email, String username, char[] password, boolean isAdmin) {
         this.name = name;
@@ -75,12 +79,20 @@ public class User implements Serializable {
     public void setPassword(char[] password) {
         this.password = password;
     }
-     
+
     public boolean isAdmin() {
         return isAdmin;
     }
 
     public void setIsAdmin(boolean isAdmin) {
         this.isAdmin = isAdmin;
+    }
+
+    public ArrayList<IProduct> getPurchaseHistory() {
+        return purchaseHistory;
+    }
+    
+    public void registerPurchasedProduct(IProduct product) {
+        purchaseHistory.add(product);
     }
 }
