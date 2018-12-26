@@ -25,6 +25,7 @@ import Products.ProductType;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
@@ -310,6 +311,15 @@ public class ProductInfoScreen extends javax.swing.JFrame {
     
     private ArrayList<Person> parseMovieStarring() {
         ArrayList<Person> result = new ArrayList<>();
+        
+        Scanner sc = new Scanner(movieStarringOutput.getText());
+        
+        while(sc.hasNextLine())
+        {
+            String line = sc.nextLine();
+            String[] split = line.split(" ");
+            result.add(new Person(split[0], split[1]));
+        }
         
         return result;
     }
