@@ -11,6 +11,8 @@ public interface IProduct extends Serializable {
     public ProductType getProductType();
 
     public MediumType getMediumType();
+    
+    public void setProductInfo(ProductInfo newProductInfo);
 
     @Override
     public String toString();

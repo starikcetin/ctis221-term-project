@@ -1,5 +1,6 @@
 package Products.Physical;
 
+import Products.Infos.GameInfo;
 import Products.PhysicalProduct;
 import Products.Infos.MovieInfo;
 import Products.Interfaces.IMovie;
@@ -22,5 +23,10 @@ public class PhysicalMovie extends PhysicalProduct implements IMovie {
     @Override
     public ProductType getProductType() {
         return ProductType.Movie;
+    }
+
+    @Override
+    public void setProductInfo(ProductInfo newProductInfo) {
+        movieInfo = (MovieInfo) newProductInfo;
     }
 }

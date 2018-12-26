@@ -1,6 +1,7 @@
 package Products.Digital;
 
 import Products.DigitalProduct;
+import Products.Infos.GameInfo;
 import Products.Infos.MovieInfo;
 import Products.Interfaces.IMovie;
 import Products.ProductInfo;
@@ -22,5 +23,10 @@ public class DigitalMovie extends DigitalProduct implements IMovie {
     @Override
     public ProductType getProductType() {
         return ProductType.Movie;
+    }
+    
+    @Override
+    public void setProductInfo(ProductInfo newProductInfo) {
+        movieInfo = (MovieInfo) newProductInfo;
     }
 }

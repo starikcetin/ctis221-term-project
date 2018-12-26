@@ -1,6 +1,7 @@
 package Products.Digital;
 
 import Products.DigitalProduct;
+import Products.Infos.BookInfo;
 import Products.Infos.GameInfo;
 import Products.Interfaces.IGame;
 import Products.ProductInfo;
@@ -22,5 +23,10 @@ public class DigitalGame extends DigitalProduct implements IGame {
     @Override
     public ProductType getProductType() {
         return ProductType.Game;
+    }
+
+    @Override
+    public void setProductInfo(ProductInfo newProductInfo) {
+        gameInfo = (GameInfo) newProductInfo;
     }
 }

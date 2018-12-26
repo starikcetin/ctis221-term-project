@@ -1,5 +1,6 @@
 package Products.Physical;
 
+import Products.Infos.MovieInfo;
 import Products.PhysicalProduct;
 import Products.Infos.MusicInfo;
 import Products.Interfaces.IMusic;
@@ -22,5 +23,10 @@ public class PhysicalMusic extends PhysicalProduct implements IMusic {
     @Override
     public ProductType getProductType() {
         return ProductType.Music;
+    }
+
+    @Override
+    public void setProductInfo(ProductInfo newProductInfo) {
+        musicInfo = (MusicInfo) newProductInfo;
     }
 }

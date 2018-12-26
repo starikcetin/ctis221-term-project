@@ -817,6 +817,11 @@ public class ProductInfoScreen extends javax.swing.JFrame {
         buttonsPanel.add(addButton);
 
         updateButton.setText("Update the Product");
+        updateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateButtonActionPerformed(evt);
+            }
+        });
         buttonsPanel.add(updateButton);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -884,6 +889,37 @@ public class ProductInfoScreen extends javax.swing.JFrame {
             Logger.getLogger(ProductInfoScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_addButtonActionPerformed
+
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+        try {
+            ProductInfo newProductInfo = null;
+
+            switch (currentProductType) {
+                case Book:
+                    newProductInfo = collateBookInfo();
+                    break;
+
+                case Game:
+                    newProductInfo = collateGameInfo();
+                    break;
+
+                case Movie:
+                    newProductInfo = collateMovieInfo();
+                    break;
+
+                case Music:
+                    newProductInfo = collateMusicInfo();
+                    break;
+            }
+
+            this.currentProduct.setProductInfo(newProductInfo);
+
+            ProductSystem.saveAllToFile();
+            JOptionPane.showMessageDialog(null, "Successfully edited the product.");
+        } catch (IOException ex) {
+            Logger.getLogger(ProductInfoScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_updateButtonActionPerformed
 
 //<editor-fold defaultstate="collapsed" desc="Generated code: variables">
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1,5 +1,6 @@
 package Products.Physical;
 
+import Products.Infos.BookInfo;
 import Products.PhysicalProduct;
 import Products.Infos.GameInfo;
 import Products.Interfaces.IGame;
@@ -22,5 +23,10 @@ public class PhysicalGame extends PhysicalProduct implements IGame {
     @Override
     public ProductType getProductType() {
         return ProductType.Game;
+    }
+    
+    @Override
+    public void setProductInfo(ProductInfo newProductInfo) {
+        gameInfo = (GameInfo) newProductInfo;
     }
 }
