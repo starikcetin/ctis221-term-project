@@ -19,11 +19,10 @@ public class UserSystem {
 
     // returns false if there is a username collision, 
     //true if added successfully
-    
-    public static void setLoggedInUser(User user){
-        loggedInUser=user;
+    public static void setLoggedInUser(User user) {
+        loggedInUser = user;
     }
-    
+
     public static boolean addUser(User newUser) {
         for (User it : users) {
             if (it.getUsername().compareTo(newUser.getUsername()) == 0) {
@@ -35,7 +34,6 @@ public class UserSystem {
         return true;
     }
 
-    
     // returns the user if found, otherwise null
     public static User findUser(String username) {
         for (User it : users) {
@@ -62,14 +60,14 @@ public class UserSystem {
     // reads all the user info from save file and reconstructs the arrayList.
     public static void readAllFromFile() throws FileNotFoundException {
         File f = new File(SAVE_FILE_NAME);
-        
+
         if (!f.exists()) {
             throw new FileNotFoundException();
         }
-        
+
         try (Scanner sc = new Scanner(f)) {
             users.clear();
-            
+
             while (sc.hasNext()) {
                 String name = sc.next();
                 String surname = sc.next();
@@ -77,7 +75,7 @@ public class UserSystem {
                 String username = sc.next();
                 String password = sc.next();
                 Boolean isAdmin = sc.nextBoolean();
-                
+
                 User readUser = new User(name, surname, email, username, password.toCharArray(), isAdmin);
                 users.add(readUser);
             }
@@ -89,21 +87,11 @@ public class UserSystem {
         File f = new File(SAVE_FILE_NAME);
         try (PrintWriter pw = new PrintWriter(f)) {
             pw.print("");
-            
+
             for (User it : users) {
                 pw.append(it.toStringForFile());
                 pw.append("\r\n");
             }
         }
     }
-
-    public static String getSAVE_FILE_NAME() {
-        return SAVE_FILE_NAME;
-    }
-
-    public static ArrayList<User> getUsers() {
-        return users;
-    }
-    
-    
 }
