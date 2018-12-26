@@ -1,3 +1,4 @@
 user user user user 123 false
 admin admin admin admin 123 true
 berslen akkaya berslen berslen 123 false
+admin test admin@admin.test testAdmin test true
