@@ -13,7 +13,7 @@ public class User implements Serializable {
     private char[] password;
     private boolean isAdmin;
 
-    private ArrayList<IProduct> purchaseHistory = new ArrayList<>();
+    private ArrayList<IProduct> purchaseHistory;
 
     public User(String name, String surname, String email, String username, char[] password, boolean isAdmin) {
         this.name = name;
@@ -22,6 +22,8 @@ public class User implements Serializable {
         this.username = username;
         this.password = password;
         this.isAdmin = isAdmin;
+        
+        this.purchaseHistory = new ArrayList<>();
     }
 
     @Override

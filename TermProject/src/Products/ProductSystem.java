@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class ProductSystem {
 
-    private static final String SAVE_FILE_NAME = "productsinfo.bin";
+    private static final String SAVE_FILE_NAME = "products.bin";
 
     private static ArrayList<IProduct> products = new ArrayList<>();
 
@@ -75,21 +75,31 @@ public class ProductSystem {
     }
 
     public static void saveAllToFile() throws FileNotFoundException, IOException {
-        ObjectOutputStream dos = new ObjectOutputStream(new FileOutputStream(new File(SAVE_FILE_NAME)));
-        dos.writeObject(products);
-        dos.close();
+        final File f = new File(SAVE_FILE_NAME);
+        final FileOutputStream fos = new FileOutputStream(f);
+        try (ObjectOutputStream output = new ObjectOutputStream(fos)) {
+            output.writeObject(products);
+        }
     }
 
     public static void readAllFromFile() throws IOException, ClassNotFoundException {
-        File f = new File(SAVE_FILE_NAME);
+        final File f = new File(SAVE_FILE_NAME);
+
+        // short-circuit if file is not there.
         if (!f.exists()) {
-            throw new FileNotFoundException();
+            return;
         }
 
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
-        products = (ArrayList<IProduct>) ois.readObject();
-        ois.close();
+        final FileInputStream fis = new FileInputStream(f);
 
+        try (final ObjectInputStream input = new ObjectInputStream(fis)) {
+            products = (ArrayList<IProduct>) input.readObject();
+        }
+
+        adaptStaticProductIdToArrayListMaxId();
+    }
+
+    private static void adaptStaticProductIdToArrayListMaxId() {
         int maxId = -1;
 
         for (IProduct it : products) {

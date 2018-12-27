@@ -4,14 +4,13 @@ import Products.IProduct;
 import Products.MediumType;
 import Products.ProductSystem;
 import Products.ProductType;
+import Users.User;
 import Users.UserSystem;
 import Utils.UiUtils;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -21,10 +20,8 @@ public class StoreScreen extends javax.swing.JFrame {
     private Map<Integer, Integer> tableIndexToProductIdMap = new HashMap<>();
 
     public StoreScreen() {
-
         initComponents();
 
-        
         // product type combobox fill
         productType.setModel(new DefaultComboBoxModel(ProductType.values()));
     }
@@ -130,6 +127,11 @@ public class StoreScreen extends javax.swing.JFrame {
         });
 
         buyButton.setText("Buy");
+        buyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buyButtonActionPerformed(evt);
+            }
+        });
 
         searchInput.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
@@ -345,9 +347,28 @@ public class StoreScreen extends javax.swing.JFrame {
             this.refreshTableWithFilters();
             ProductSystem.saveAllToFile();
         } catch (IOException ex) {
-            Logger.getLogger(StoreScreen.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "File error during removal:\n" + ex.toString());
         }
     }//GEN-LAST:event_removeProductButtonActionPerformed
+
+    private void buyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyButtonActionPerformed
+        IProduct selected = getSelectedProduct();
+
+        User u = UserSystem.getLoggedInUser();
+
+        if (selected == null) {
+            return;
+        }
+
+        try {
+            u.registerPurchasedProduct(selected);
+            JOptionPane.showMessageDialog(null, "Product added.");
+            UserSystem.writeAllToFile();
+            JOptionPane.showMessageDialog(null, "Purchase successful.");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "File error during purchase:\n" + ex.toString());
+        }
+    }//GEN-LAST:event_buyButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addProductButton;

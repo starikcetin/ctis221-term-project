@@ -26,7 +26,7 @@ public class DigitalMusic extends DigitalProduct implements IMusic {
     }
 
     @Override
-    public void setProductInfo(ProductInfo newProductInfo) {
+    public void updateProductInfo(ProductInfo newProductInfo) {
         musicInfo = (MusicInfo) newProductInfo;
     }
 }

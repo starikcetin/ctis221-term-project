@@ -26,7 +26,7 @@ public class PhysicalBook extends PhysicalProduct implements IBook {
     }
     
     @Override
-    public void setProductInfo(ProductInfo newProductInfo) {
+    public void updateProductInfo(ProductInfo newProductInfo) {
         bookInfo = (BookInfo) newProductInfo;
     }
 }

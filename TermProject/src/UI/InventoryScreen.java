@@ -24,7 +24,7 @@ public class InventoryScreen extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) itemTable.getModel();
         model.setRowCount(0);
 
-        ArrayList<IProduct> allProducts = ProductSystem.getAllProducts();
+        ArrayList<IProduct> allProducts = UserSystem.getLoggedInUser().getPurchaseHistory();
 
         DefaultTableModel dtm = (DefaultTableModel) itemTable.getModel();
 
@@ -149,12 +149,13 @@ public class InventoryScreen extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(usernameOutput, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel3))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(usernameOutput)))
+                        .addComponent(searchInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchButton)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
@@ -195,12 +196,13 @@ public class InventoryScreen extends javax.swing.JFrame {
                 return;
             }
 
+            WindowManager.ProductInfo.setUpForViewOrEdit(selectedProduct, UserSystem.getLoggedInUser().isAdmin());
             WindowManager.ProductInfo.setVisible(true);
         }
     }//GEN-LAST:event_itemTableMouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        usernameOutput.setText(UserSystem.getLoggedInUser().getName().toUpperCase() + " " + UserSystem.getLoggedInUser().getSurname().toUpperCase());
+        usernameOutput.setText(UserSystem.getLoggedInUser().getName() + " " + UserSystem.getLoggedInUser().getSurname());
         fillTheTable();
     }//GEN-LAST:event_formWindowActivated
 

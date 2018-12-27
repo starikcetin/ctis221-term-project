@@ -26,7 +26,7 @@ public class DigitalGame extends DigitalProduct implements IGame {
     }
 
     @Override
-    public void setProductInfo(ProductInfo newProductInfo) {
+    public void updateProductInfo(ProductInfo newProductInfo) {
         gameInfo = (GameInfo) newProductInfo;
     }
 }

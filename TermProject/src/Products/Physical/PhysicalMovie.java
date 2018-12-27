@@ -26,7 +26,7 @@ public class PhysicalMovie extends PhysicalProduct implements IMovie {
     }
 
     @Override
-    public void setProductInfo(ProductInfo newProductInfo) {
+    public void updateProductInfo(ProductInfo newProductInfo) {
         movieInfo = (MovieInfo) newProductInfo;
     }
 }

@@ -905,7 +905,7 @@ public class ProductInfoScreen extends javax.swing.JFrame {
                     break;
             }
 
-            this.currentProduct.setProductInfo(newProductInfo);
+            this.currentProduct.updateProductInfo(newProductInfo);
 
             ProductSystem.saveAllToFile();
             JOptionPane.showMessageDialog(null, "Successfully edited the product.");

@@ -1,28 +1,33 @@
 package Users;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class UserSystem {
 
-    private static final String SAVE_FILE_NAME = "usersinfo.txt";
+    private static final String SAVE_FILE_NAME = "users.bin";
     private static User loggedInUser;
+
+    private static ArrayList<User> users = new ArrayList<User>();
 
     public static User getLoggedInUser() {
         return loggedInUser;
     }
-    private static ArrayList<User> users = new ArrayList<User>();
+
+    public static void setLoggedInUser(User user) {
+        loggedInUser = user;
+        int a = 1;
+    }
 
     // returns false if there is a username collision, 
     //true if added successfully
-    public static void setLoggedInUser(User user) {
-        loggedInUser = user;
-    }
-
     public static boolean addUser(User newUser) {
         for (User it : users) {
             if (it.getUsername().compareTo(newUser.getUsername()) == 0) {
@@ -58,40 +63,26 @@ public class UserSystem {
     }
 
     // reads all the user info from save file and reconstructs the arrayList.
-    public static void readAllFromFile() throws FileNotFoundException {
-        File f = new File(SAVE_FILE_NAME);
+    public static void readAllFromFile() throws IOException, ClassNotFoundException {
+        final File f = new File(SAVE_FILE_NAME);
 
+        // short-circuit if file is not there.
         if (!f.exists()) {
-            throw new FileNotFoundException();
+            return;
         }
 
-        try (Scanner sc = new Scanner(f)) {
-            users.clear();
-
-            while (sc.hasNext()) {
-                String name = sc.next();
-                String surname = sc.next();
-                String email = sc.next();
-                String username = sc.next();
-                String password = sc.next();
-                Boolean isAdmin = sc.nextBoolean();
-
-                User readUser = new User(name, surname, email, username, password.toCharArray(), isAdmin);
-                users.add(readUser);
-            }
+        final FileInputStream fis = new FileInputStream(f);
+        try (final ObjectInputStream input = new ObjectInputStream(fis)) {
+            users = (ArrayList<User>) input.readObject();
         }
     }
 
     // writes all the info in arrayList to save file.
     public static void writeAllToFile() throws IOException {
-        File f = new File(SAVE_FILE_NAME);
-        try (PrintWriter pw = new PrintWriter(f)) {
-            pw.print("");
-
-            for (User it : users) {
-                pw.append(it.toStringForFile());
-                pw.append("\r\n");
-            }
+        final File f = new File(SAVE_FILE_NAME);
+        final FileOutputStream fos = new FileOutputStream(f);
+        try (final ObjectOutputStream output = new ObjectOutputStream(fos)) {
+            output.writeObject(users);
         }
     }
 }

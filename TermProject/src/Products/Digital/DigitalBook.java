@@ -25,7 +25,7 @@ public class DigitalBook extends DigitalProduct implements IBook {
     }
 
     @Override
-    public void setProductInfo(ProductInfo newProductInfo) {
+    public void updateProductInfo(ProductInfo newProductInfo) {
         bookInfo = (BookInfo) newProductInfo;
     }
 }
